@@ -1,0 +1,199 @@
+<div *ngIf="issLoading" class="overlay">
+    <mat-progress-spinner class="loader">
+    </mat-progress-spinner>
+</div>
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">Online Verification</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h2> Document Verification – Guidelines</h2>
+                    <p style="text-align: justify;">Council for Technology & Science Kerala (C-TECH) provides a document verification facility for Government Departments, Companies, Embassies, Verification Agencies, and other Authorized Organizations. Please read the following instructions carefully before submitting a request:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="about-text">
+                    <h3>Modes of Verification</h3>
+                    <p style="text-align: justify;">Email Verification: Send a scanned copy of the certificate and mark list to info@ctskerala.in along with the payment receipt (if applicable).</p>
+                    <p style="text-align: justify;">Physical Verification: Submit documents directly to our office for processing.</p>
+                    <p style="text-align: justify;">Letter-Based Verification: Official letters requesting verification may be sent to our registered address with all required details.</p>						
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <p style="text-align: justify;">Note: We do not provide verification through phone calls. All requests must be made in writing (email/letter/physical submission). Processing time depends on the completeness of documents submitted. Processing time: 7–10 working days (may vary depending on case complexity. Only written requests with proper documentation will be entertained. Verification reports will be issued only to the requesting organization, not to third parties without authorization.</p>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <h3>Verification Charges</h3>
+                <p style="text-align: justify;">Note: We do not provide verification through phone calls. All requests must be made in writing (email/letter/physical submission). Processing time depends on the completeness of documents submitted. Processing time: 7–10 working days (may vary depending on case complexity. Only written requests with proper documentation will be entertained. Verification reports will be issued only to the requesting organization, not to third parties without authorization.</p>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <h3>Payment Details:</h3>
+                <p style="text-align: justify;">Bank Name: State Bank of India (SBI), Account Name: Council for Technology & Science Kerala,  Account Number: 31696268591, IFSC Code: SBIN0010597.</p>
+                <p style="text-align: justify;">A copy of the deposit slip or online payment proof must be attached with your email or submitted with the physical documents. Without proof of payment, verification will not be processed.</p>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <h3>Student Result Lookup (Online)</h3>
+                <p style="text-align: justify;">You can check basic result details by entering the student registration number on our website. This online search result is for reference only and is not an official verification document. Official verification requests must be submitted as described above. Due to system limitations, not all student records may be available online. Technical errors or data sync delays may sometimes occur; in such cases, official verification requests must be submitted manually. C-TECH does not upload every student's document online for privacy and security reasons.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h3>Online Verification Form</h3>
+                    <p style="text-align: justify;">Employers, universities, and other institutions can verify the authenticity of certificates issued by the Council for Technology & Science Kerala (C-Tech) using our online verification system. Please enter the registration number provided on the certificate to retrieve student details.</p>
+                </div>
+                
+                <div class="verification-form mt-4">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="form-group">
+                                <label>Registration Number</label>
+                                <input type="text" class="form-control" placeholder="Enter Registration Number" [(ngModel)]="Student_.Registration_No">
+                            </div>
+                            <button class="btn btn-primary btn-block" (click)="Public_Search_Student_Details()">Verify Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="verification-results mt-5" *ngIf="Student_Data && Student_Data.length > 0">
+                    <h4 class="text-center mb-4">Student Details Found</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr style="background-color: #f9f9f9;">
+                                    <th>Field</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let student of Student_Data">
+                                <tr>
+                                    <td>Student Name</td>
+                                    <td>{{ student["Old_Student_Registration_Student_Name"]}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Registration No</td>
+                                    <td>{{ student["Old_Student_Registration_No"]}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Program</td>
+                                    <td>{{ student["Program"]}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Session</td>
+                                    <td>{{ student["Section"]}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Result</td>
+                                    <td>{{ student["Result"]}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">Our Contact</h5>
+                    <!-- <address>
+                        <strong>Council for Technology & Science Kerala (C-TECH)</strong><br>
+                        KPNRA 220, Kaduvetty Lane<br>
+                        Kanjirampara POST<br>
+                        Thiruvananthapuram 695 030<br>
+                        Kerala State, India
+                    </address> -->
+                    <address>
+                        <strong>Council for Technology & Science Kerala </strong><br>
+                        Madrasa Lane,
+                        Sasthamangalam PO,
+                        Trivandrum 695010,
+                        Kerala State,
+                        Ph:0471-2440033, 9745220033
+                    </address>
+                    <p>
+                        <i class="fa fa-phone"></i> 0471-2440033 <br>
+                        <!-- <i class="icon-phone"></i> +91 8086 200 250 <br> -->
+                        <i class="icon-envelope-alt"></i> info@ctskerala.in
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">Quick Links</h5>
+                    <ul class="link-list">
+                        <li><a (click)="Skill_Diploma_Click()" style="cursor: pointer;">Certificate & Diploma Programs</a></li>
+                        <li><a (click)="Skill_Diploma_Click()" style="cursor: pointer;">University Programs</a></li>
+                        <li><a (click)="Skill_Diploma_Click()" style="cursor: pointer;">Skill Identity Programs</a></li>
+                        <li><a (click)="Skill_Diploma_Click()" style="cursor: pointer;">Skill Proficiency Programs</a></li>
+                        <li><a (click)="Skill_Diploma_Click()" style="cursor: pointer;">Trade Competency Programs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">Awesome Features</h5>
+                    <ul class="link-list">
+                        <li><a href="#" style="cursor: pointer;">Centre Login</a></li>
+                        <li><a (click)="Student_Login_Click()" style="cursor: pointer;">Student Login</a></li>
+                        <li><a (click)="Online_Verification_Click()" style="cursor: pointer;">Document Verification</a></li>
+                        <li><a (click)="Candidate_Click()" style="cursor: pointer;">Job</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">Council for Technology & Science Kerala (C-TECH)</h5>
+                    <ul class="link-list">
+                        <li>CTech serves as the skill education division of Kairali Sevak Samaj and is committed to making affordable, accessible, and employment-oriented programs available to learners.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sub-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="copyright">
+                        <p>
+                            <span>&copy; Cambridge 2018 All right reserved. By </span><a href="https://ctskerala.in/" target="_blank">CTS KERALA</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="social-network">
+                        <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

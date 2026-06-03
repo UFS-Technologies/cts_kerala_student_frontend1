@@ -1,0 +1,1004 @@
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">Candidate Profile</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="wrapper" *ngIf="Entry_View">
+                            <nav class="navbar navbar-inverse container tab-nav">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+                                        <ul class="tab-list">
+                                            <li class="current-tab"><a class="navbar-brand tab-active" (click)="Tab_click(1)" onclick="addActive(this)">profile </a>&nbsp; </li>
+                                          <li><a class="navbar-brand"  (click)="Tab_click(2)" onclick="addActive(this)">Applied Jobs</a>&nbsp; </li>
+                                            <!--   <li><a class="navbar-brand"  (click)="Tab_click(3)" onclick="addActive(this)">Fess Receipt</a>&nbsp; </li>
+                                            <li><a class="navbar-brand"  (click)="Tab_click(4)" onclick="addActive(this)">Mark List</a>&nbsp;</li> -->
+
+                                                <!-- STUDENT LOGIN TABS -->
+                                            <!-- <li><a class="navbar-brand"  (click)="Tab_click(2)" onclick="addActive(this)">Course</a>&nbsp; </li>
+                                            <li><a class="navbar-brand"  (click)="Tab_click(3)" onclick="addActive(this)">Fess Receipt</a>&nbsp; </li>
+                                            <li><a class="navbar-brand"  (click)="Tab_click(4)" onclick="addActive(this)">Mark List</a>&nbsp;</li>
+                                            <li><a class="navbar-brand"  (click)="Tab_click(5)" onclick="addActive(this)">Exam</a>&nbsp;</li> -->
+                                                <!-- STUDENT LOGIN TABS END -->
+
+                                            <!-- <li><a class="navbar-brand"  (click)="Tab_click(5)" onclick="addActive(this)">Application Fee</a> </li>
+                                            <li><a class="navbar-brand"  (click)="Tab_click(6)" onclick="addActive(this)">Status</a></li>-->
+                                            <button type="button" *ngIf="Agent_Edit_e>0" class="close" aria-label="Close" (click)="Close_Click()">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+
+                                        </ul>                   
+                                    </div>
+                                </div>
+                            </nav>
+                            <div class="tab-body" >
+                                <div *ngIf="Profile_View">
+                                  
+                                    <div id="profile">
+                                     
+                                      
+                                        <div class="row col-md-12 container form-section" >
+                                            
+                                            <!-- <div class="col-md-1"></div> -->
+                                            <div class="col-md-4 container1">
+                                                <form>
+                                                  
+                                                  <div>Candidate Name<span style="color:#ef071e; font-size: 22px; vertical-align: -webkit-baseline-middle;">*</span></div>
+                                                    <input type="text" name="Candidate_Name" [(ngModel)]="Candidate_.Candidate_Name" placeholder="Candidate Name" class="input-style" />
+                                                 
+                                                    <div>Mobile<span style="color:#ef071e; font-size: 22px; vertical-align: -webkit-baseline-middle;">*</span></div>
+                                                    <input type="tel" name="Mobile" [(ngModel)]="Candidate_.Mobile" placeholder="Mobile"   class="input-style" />
+
+                                                    <div>WhatsAppNo</div>
+                                                    <input type="tel" name="Whatsapp" [(ngModel)]="Candidate_.Whatsapp" placeholder="WhatsAppNo" class="input-style" />
+
+                                                    <div>Gender</div>
+                                                        <select [(ngModel)]="Gender_" name="Candidate_.Gender" required class="input-style">
+                                                            <option *ngFor="let Gender of Gender_Data" [ngValue]="Gender">{{Gender.Gender_Name}}</option>
+                                                            </select>
+                                                   
+                                                
+                                               
+                                                </form>
+                                            </div>
+                                            <!-- <div class="col-md-1" style="border-left: solid 1px #000;"></div> -->
+                                            <div class="col-md-4 container2">
+                                                <form>
+                                        
+                                                   
+                                                    
+                                                    <div>Flat No/House No</div>
+                                                    <input type="text" name="Address1" [(ngModel)]="Candidate_.Address1" placeholder="Flat No/House No"    class="input-style" />
+                                                
+                                                    <div>Location</div>
+                                                    <input type="text" name="Address2"  [(ngModel)]="Candidate_.Address2"placeholder="Location"   class="input-style" />
+
+                                                    <div>Street</div>
+                                                    <input type="text" name="Address3" [(ngModel)]="Candidate_.Address3" placeholder="Street"  class="input-style" />
+
+                                                    <!-- <div>Land Mark</div>
+                                                    <input type="text" name="Address4" [(ngModel)]="Candidate_.Address4"  placeholder="Land Mark"   class="input-style" /> -->
+
+                                                    <div>Pincode</div>
+                                                    <input type="text" name="Pincode"  [(ngModel)]="Candidate_.Pincode"placeholder="Pincode"    class="input-style" />
+
+                                                 
+                                                  
+                                                </form>
+                                            </div>
+
+
+                                            <div class="col-md-4 container2">
+                                                <form>
+                                        
+                                                    <div>Date Of Birth</div>
+                                                    <input type="date" name="DOB"  [(ngModel)]="Candidate_.DOB" placeholder=" " class="input-style">
+                                                  
+
+                                                    <div>Email<span style="color:#ef071e; font-size: 22px; vertical-align: -webkit-baseline-middle;">*</span></div>
+                                                    <input type="email"  name="Email" [(ngModel)]="Candidate_.Email" placeholder="Email"  class="input-style">
+
+
+                                                    <div>Password<span style="color:#ef071e; font-size: 22px; vertical-align: -webkit-baseline-middle;">*</span></div>
+                                                    <input type="password" name="Password" [(ngModel)]="Candidate_.Password" placeholder="Password"   class="input-style" />
+                                                    
+                                                    <div>Photo</div>
+                                                    <input type="text"   placeholder="Photo"   name="Candidate_.Photo"  class="input-style" [(ngModel)]="Candidate_.Photo"/>
+                                                    <button class="other-button-style  font-weight-bold upload uploadphoto"   type="button" (click)="fileInput4.click()">Upload
+                                                    <input #fileInput4 type="file"   id="btnUpload"  value="Upload" name="Photo"  style="display:none;"  class="upload" [(ngModel)]="File" (change)="File_Change_Photo($event)"  /> 
+                                                    </button>
+                                                    <div class="col-md-11">                                           
+                                                        <div class="square">
+                                                           <img id="output" width="200" src={{ImageFile_Photo_view}} />
+                                                        </div>
+                                                                                                                
+                                                         </div>
+
+
+
+
+
+
+
+                                                       <!-- <div class="form-row  mb-2">
+        
+                                                            
+                                                        <div class="square">
+                                                           <img id="output" width="200" src={{ImageFile_Photo_view}} />
+                                                        </div>
+                                                                                                                
+                                                         </div> -->
+                                                    <!-- <div>Passport No</div>
+                                                    <input type="number" name="Passport_No" [(ngModel)]="Candidate_.Passport_No" placeholder="Passport No" class="input-style">
+                                                    
+                                                    <div>Passport Expiry</div>
+                                                    <input type="date" name="Passport_Expiry" [(ngModel)]="Candidate_.Passport_Expiry" placeholder="Passport Expiry" class="input-style">
+                                                 -->
+
+
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                                
+                                        <div class="col-md-12 " style="margin-top: 10%;">
+                                            <h3><b>Resume Summary</b></h3> 
+                                            <hr>
+                                        </div>
+
+                                    <div class="row col-md-12 container form-section" >
+                                        <!-- <div class="col-md-1"></div> -->
+                                        <div class="col-md-4 container1">
+                                            <form>
+                                          
+                                              <div>Post Looking For</div>
+                                                <input type="text" [(ngModel)]="Candidate_.Postlookingfor" name="Candidate_.Postlookingfor"  placeholder="Post" class="input-style" />
+                                                
+                                               <div>Functional Area</div>
+                                               <select [(ngModel)]="Functionl_Area_" name="Functionl_Area" required class="input-style">
+                                                <option *ngFor="let Functionl_Area of Functionl_Area_Data" [ngValue]="Functionl_Area">{{Functionl_Area.Functionl_Area_Name}}</option>
+                                                </select>
+                                          
+                                               <div>Specialization</div>
+                                                <select [(ngModel)]="Specialization_" name="Specialization" required class="input-style">
+                                                    <option *ngFor="let Specialization of Specialization_Data" [ngValue]="Specialization">{{Specialization.Specialization_Name}}</option>
+                                                    </select>   
+                                            </form>
+                                        </div>
+                                        <!-- <div class="col-md-1" style="border-left: solid 1px #000;"></div> -->
+                                        <div class="col-md-4 container2">
+                                            <form>
+                                    
+                                               
+                                                
+                                                
+                                                <div>Qualification</div>
+                                                   <select [(ngModel)]="Qualification_" name="Candidate_.Qualification" required class="input-style">
+                                                    <option *ngFor="let Qualification of Qualification_Data" [ngValue]="Qualification">{{Qualification.Qualification_Name}}</option>
+                                                    </select>
+
+                                                <div>Experience</div>
+                                                <select [(ngModel)]="Experience_" name="Experience" required class="input-style">
+                                                    <option *ngFor="let Experience of Experience_Data" [ngValue]="Experience">{{Experience.Experience_Name}}</option>
+                                                    </select>
+                                                   
+                                               
+                                                <!-- <div>Resume</div>
+                                                <input type="text"           placeholder="Photo"     class="input-style" />
+                                                <button class="other-button-style  font-weight-bold upload ml-1"   type="button"
+                                                (click)="fileInput4.click()">Upload
+                                                <input #fileInput4 type="file"   id="btnUpload"  value="Upload" name="Photo"  
+                                               style="display:none;"  class="upload"  /> 
+                                                </button> -->
+                                               
+                                                <div>Resume</div>
+                                                <input type="text"   placeholder="Resume"   name="Candidate_.Resume"  class="input-style" [(ngModel)]="Candidate_.Resume"/>
+                                                <button class="other-button-style  font-weight-bold upload uploadphoto"   type="button" (click)="fileInput5.click()">Upload
+                                                <input #fileInput5 type="file"   id="btnUpload"  value="Upload" name="Photo"  style="display:none;"  class="upload" [(ngModel)]="File" (change)="File_Change_Resume($event)"  /> 
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                               
+                                    <!-- <div class="button-top mb-2" style="    float: right; margin-right: 4%!important;">
+                                        <button name="Update" class="btn" (click)="Update_Student_click()" >Update</button>
+                                    </div> -->
+                                    <!-- <div class="col-md-12">
+                                        <button class="button-style mb-3"  (click)="Save_Candidate()" style="float:right;margin-right: 11%;" >Save</button>
+                                        <button  mat-raised-button type="submit" class="close-style mb-3 mr-2" style="float:right"
+                                        (click)="Close_Click()">Close</button>
+                                    </div> -->
+                                    <div class="col-md-12">
+                                        <button name="Update" class="btn" style="float: right;" (click)="Public_Save_Candidate_Front()">Save</button>
+                                   
+                                        <button name="Update" class="btn mr-2" style="float: right;"   (click)="Close_Click()" >Close</button>
+                                    </div>
+                                </div>
+                                <div>
+
+
+
+                                    <div *ngIf="Jobs_View" >
+                                        <div id="application">
+                                         
+                                            <!-- <div class="row col-md-12 container form-section" >
+                                             
+                                                <div class="col-md-6 container1">
+                                                    <form>
+                                                        <div>Company Name</div>
+                                                        <input type="text" name="Company_Name" placeholder="Company Name" class="input-style" />
+                                                    
+                                                        <div>Apply Date</div>
+                                                        <input type="text" name="Apply_Date" placeholder="Apply Date"   class="input-style" />
+
+
+                                                        <div>Job Code</div>
+                                                        <input type="text" name="CourseType" placeholder="Course Type"    class="input-style" />
+                        
+                    
+                                                    
+                        
+                                                    </form>
+                                                </div>
+                                                <div class="col-md-6 container1">
+                                                    <form>
+                                                    
+                                                        <div>Job Title</div>
+                                                        <input type="text" name="Job_Title" placeholder="Job Title"    class="input-style" />
+                                                    
+                                                        <div>Specialization</div>
+                                                        <input type="text" name="Specialization" placeholder="Specialization"   class="input-style" />
+                        
+                                                        <div>Status</div>
+                                                        <input type="text" name="Status" placeholder="Status"   class="input-style" />
+                        
+                                                    </form>
+                                                </div>
+                                             
+                                            </div> -->
+                        
+                                            <div class="col-md-12 pl-3 pr-8 mt-2" style="border: 1">
+                                                <div class="container-import" style="    margin-left: -3% !important;"> 
+                                                <div class="dt-card mb-0 pb-1 " style="background-color: #ffff;" > 
+                                                    <h3><b>Applied Jobs</b></h3> 
+                                        <div class="table-responsive">
+                                        <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format">
+                                            <thead>
+                                                <!-- <strong>Experience</strong> :{{Search_Data_d.Experience}}
+                                                <strong>Qualification</strong> :{{Search_Data_d.Qualification_Name}}
+                                                <strong>Salary </strong> :{{Search_Data_d.Salary}} 
+                                                <strong>Functional Area</strong> :{{Search_Data_d.Functional_Area_Name}} <br>
+                                                <strong>Location</strong> :{{Search_Data_d.Job_Location}} 
+                                                <strong>No:Of Vacancy</strong> :{{Search_Data_d.No_Of_Vaccancy}} 
+                                                <strong>Specialization</strong> :{{Search_Data_d.Specialization_Name}} 
+                                                <strong>Description</strong> :{{Search_Data_d.Descritpion}}   -->
+                                            <th> Job</th>
+                                            <th> Company</th>
+                                            <th> Applied On</th> 
+                                            <th> Job Code</th>
+                                            <!-- <th> Specialization </th> -->
+                                            <!-- <th>Status</th> -->
+                                            <th></th>
+                                            </thead>
+                                            <tbody *ngFor="let Job of Job_Search_Data; let i = index"  >          
+                                                <tr>
+                                                <td> {{Job.Job_Title}} </td>
+                                                <td> {{Job.Company_Name}} </td>
+                                                <td> {{Job.Entry_Date}} </td>
+                                                <td> {{Job.Job_Code}} </td>
+                                                
+                                                <!-- <td> {{Job.Specialization_Name}} </td> -->
+                                                <!-- <td> {{Job.Status_Name}} </td> -->
+                                               
+                                            </tr>
+                                            </tbody>
+                                            
+                                            </table>
+                                    
+                                        </div>
+                                    
+                                        </div>
+                                        </div>
+                                        </div>
+
+
+
+
+
+                                            <!-- <mat-accordion>
+                                                <mat-expansion-panel *ngFor="let Course_ of Student_Course_Apply_Data; let i = index">
+                                                <mat-expansion-panel-header (click)="Get_Student_Course_Selection(Course_.Student_Course_Apply_Id)" id={{Course_.Student_Course_Apply_Id}} >
+                                                    Applied on {{Course_.Entry_Date}} , {{Course_.Total_Course}} Courses
+                                
+                                                        <div class="button-top">
+                                                            <button class="btn-search">View Courses</button>
+                                                        </div>
+                                                        <div class="button-top">
+                                                            <button (click)="Make_Payment(Course_.Student_Course_Apply_Id)" class="btn-search">Make Payment</button>
+                                                        </div>
+                                                    </mat-expansion-panel-header>
+                                                    
+                                            
+                                                    <table class="table table-bordered mt-4">
+                                                <thead>
+                                                    <tr class="table-head">
+                                                        
+                                                        <th scope="col">Course</th>
+                                                        <th scope="col">Country</th>
+                                                        <th scope="col">University</th>
+                                                        <th scope="col">Fees</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody *ngFor="let Items_ of Student_Course_Selection_Data; let i = index" class="bg-color">
+                                                    <tr>
+                                                        <td>{{Items_["Course_Name"]}}</td>
+                                                        <td>{{Items_["Country_Name"]}}</td>
+                                                        <td>{{Items_["University_Name"]}}</td>
+                                                        <td>{{Items_["Fees"]}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>                        
+                                                </mat-expansion-panel>
+                                            </mat-accordion> -->
+                                        </div>
+                                    </div>
+                                
+
+                                    <div *ngIf="fee_View" >
+                                        <div id="document">
+                                            <!-- <div class="mb-4">
+                                                    <h1>My Document 
+                                                        <span class="inner">Now you can upload the documents. </span>
+                                                        <span class="inner span-green">ID pages of passport (First and last pages) , all mark sheet upto your highest qualification and certificates</span>
+                                                        <span class="inner">[ eg : for a P.G admission you can upload your 10th, 12th, Degree mark sheets (all semesters) & Degree certificates <br>
+                                                            (or provisional) ]. These are the most <span class="span-green">basic documents</span> for the admission application.
+                                                        </span>                 
+                                                    </h1>
+                                            </div>           
+                                            <hr> -->
+                        
+                                        
+                                            <!-- <form>
+                                                <div class="row mt-4">
+                                                    <div class="col-md-3">
+                                                    
+                        
+                                                        <button class="btn btn-gradient "  type="button" (click)="fileInput.click()">
+                                                            <span>Select File</span>
+                                                            <input #fileInput type="file"  [(ngModel)]="File" (change)="File_Change($event)" style="display:none;" />
+                                                        </button>
+                                                        {{Display_File_Name_}}
+                                                    </div>
+                        
+                                                    <div class="col-md-4">
+                                                        <label class="col-md-4 label-down-alighn-supler-prhse-mstr-down">Document</label>
+                                                        <select [(ngModel)]="Save_Document_" name="Save_Document_" 
+                                                        required class="col-md-8 margin-lh-rh-to-crect-textbox select-user-block input-style">
+                                                        <option *ngFor="let Document_T of Document_Data" [ngValue]="Document_T">{{Document_T.Document_Name}}</option>
+                                                        </select>
+                                                        </div>
+                                                
+                        
+                                                    <div class="col text-center btn-save">
+                                                        <button class="btn btn-gradient " (click)="Save_Student_Document()">Upload</button>
+                                                    </div>
+                                                </div>                
+                                            </form> -->
+                        
+                                            <!-- <table class="table table-bordered mt-4">
+                                                <thead>
+                                                    <tr class="table-head">
+                                                        <th scope="col">Date</th>
+                                                        <th scope="col">Document</th>
+                                                        <th scope="col">Download</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody  *ngFor="let Items_ of Student_Document_Data; let i = index" class="bg-color"
+                                                class="bg-color">
+                                                    <tr>
+                                                        <td>{{Items_["Entry_Date"]}}</td>
+                                                        <td>{{Items_["Document_Name"]}}</td>
+                                                        <td><button mat-raised-button type="submit" 
+                                                            style="background-color: #7a238c;"  class="btn btn-danger pull-right"
+                                                            (click)="Download_Photo(Items_.File_Name)">View Document</button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table> -->
+                        
+                                            <!-- <div class=" float-right mt-3">
+                                                <button class="btn half-button" data-toggle="modal" data-target="#help-lg"><strong style="font-size: 30px;">?</strong> Help</button>
+                                            </div> -->
+                        
+                                            <div class="col-md-12 pl-3 pr-8 mt-2" style="border: 1">
+                                                <div class="container-import" style="    margin-left: -3% !important;"> 
+                                                <div class="dt-card mb-0 pb-1 " style="background-color: #ffff;" > 
+                                                    <h3><b>Fees Instalment</b></h3> 
+                                    <div class="table-responsive">
+                                        <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format">
+                                            <thead>
+                                            <th>
+                                            Fees 
+                                            </th>
+                                            <th>
+                                        Due Date
+                                            </th> 
+                                            <th>
+                                        Amount
+                                                </th>
+                                                <th>
+                                            No:of instalment
+                                                </th>
+                                                <th>
+                                            Instalment Period
+                                            </th>
+                                            <th>Pay</th>
+                                            <th></th>
+                                            </thead>
+                                            <tbody >          
+                                                <tr>
+                                                <td>
+                                                Test
+                                                </td>
+                                                <td>
+                                                    Test
+                                                </td>
+                                                <td>
+                                                    Test
+                                                </td>
+                                                <td>
+                                                    Test
+                                                </td>
+                                                <td>
+                                                    Test
+                                                </td>
+                                                <td>
+                                                    <div> 
+                                            <button mat-raised-button type="submit" class="other-button-style btnflot pull-right mt-0" id="Registration_Report">
+                                            PAY
+                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                            
+                                            </table>
+                                    
+                                        </div>
+                                    
+                                        </div>
+                                        </div>
+                                        </div>
+                        
+                                        <!-- <div class="col-md-12 mt-3" style="margin-left: -3% !important;">
+                                        <button mat-raised-button type="submit" class="other-button-style btnflot pull-right mt-0" id="Registration_Report">
+                                            PAYMENT HISTORY
+                                        </button>
+                                        </div> -->
+                        
+                                        <div class="col-md-12 pl-3 pr-8 mt-2" style="border: 1">
+                                            <div class="container-import" style="    margin-left: -3% !important;"> 
+                                            <div class="dt-card mb-0 pb-1 " style="background-color: #ffff;" >  
+                                                <h3><b>Payment History</b></h3>
+                                        <div class="table-responsive">
+                                        <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format">
+                                        <thead>
+                                        <th> Date </th>
+                                        <th> Fees</th>
+                                        <th> Voucher No </th> 
+                                        <th> Amount </th>
+                                        <th> Description</th>
+                                        <th></th>
+                                        </thead>
+                                        <tbody >          
+                                            <tr>
+                                            <td>04-08-2021</td>
+                                            <td>Application</td>
+                                            <td> 100</td>
+                                            <td>30,000</td>
+                                            <td> Test </td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                       </div>
+                                       </div>
+                                       </div>
+                                      </div>
+                                     </div>
+                                    </div>
+
+
+
+                                    <div *ngIf="mark_View" >
+                                        <div id="message">
+                                            <!-- <div class="mb-4">
+                                                <h1>My Message <span class="inner">This is the section where you get messages regarding your application</span></h1>
+                                                <p class="mt-4">
+                                                    It's important that you read each message carefully as they contain important information about your application, 
+                                                    such as missing information or pending documents or practical information about the course or programme you've applied for.	
+                                                </p>
+                                            </div> -->
+                        
+                                            <!-- <table class="table table-bordered mt-4">
+                                                <thead>
+                                                    <tr class="table-head">
+                                                        <th scope="col">Date</th>
+                                                        <th scope="col">Message</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody  *ngFor="let Items_ of Student_Message_Data; let i = index" class="bg-color"
+                                                class="bg-color">
+                                                    <tr>
+                                                        <td>{{Items_["Entry_Date"]}}</td>
+                                                        <td>{{Items_["Message_Detail"]}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table> -->
+                                    
+                                            <div class="col-md-12 pl-3 pr-8 mt-2" style="border: 1">
+                                                <div class="container-import" style="    margin-left: -3% !important;"> 
+                                                <div class="dt-card mb-0 pb-1 " style="background-color: #ffff;" > 
+                                                    <h3><b></b></h3> 
+                                    <div class="table-responsive">
+                                        <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format">
+                                            <thead>
+                                            <th>
+                                            Subject Name
+                                            </th>
+                                            <th>
+                                            Minimum Mark
+                                            </th> 
+                                            <th>
+                                            Maximum Mark
+                                                </th>
+                                                <th>
+                                        Obtained Mark
+                                                </th>
+                                                <th>
+                                            Grade
+                                            </th>
+                                            <th>Status</th>
+                                            <th></th>
+                                            </thead>
+                                            <tbody >          
+                                                <tr>
+                                                <td>
+                                                Mathematics
+                                                </td>
+                                                <td>
+                                                45
+                                                </td>
+                                                <td>
+                                                100
+                                                </td>
+                                                <td>
+                                                90
+                                                </td>
+                                                <td>
+                                                A1
+                                                </td>
+                                                <td>
+                                                Pass
+                                                </td>
+                                            
+                                            </tr>
+                                            </tbody>
+                                            
+                                            </table>
+                                    <div class="col-md-12">
+                                        <button mat-raised-button type="submit"  style="background-color: #3b9315;float: right;"class="other-button-style  mt-0" id="Registration_Report" >
+                                        Download
+                                        </button>
+                                    </div>
+                                        </div>
+                                    
+                                        </div>
+                                        </div>
+                                        </div>
+                                    
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="exam_View" >
+                                        <div id="fee">
+                                        <!-- <div class="mb-4">
+                                            <h1>Fee Details</h1>
+                                            <ul class="mt-4">
+                                                <li>The application fees for Sweden ( for multiple universities together) is 200 Euros ( 300 CAD ) without a promo code						</li>
+                                                <li>You have to pay only 100 Euros if you apply a Promo code						</li>
+                                                <li>If you are applying only to UK / Ireland / Canada ( except Georgian college), you do not have to make any payments						</li>
+                                                <li>Payments if any , can be done from your Applications tab through make payment link.						</li>
+                                                <li>Promo code can be entered in My Profile of Profile tab						</li>
+                                                <li>For more details see HELP page FAQs						</li>
+                                                <li>You will receive the receipt in your mail provided.						</li>
+                                            </ul>
+                                        </div> -->
+                                        <div class="col-md-12 pl-3 pr-8 mt-2">
+                                            <!-- <div class="dt-card mt-2" style="width: 70%!important;"> -->
+                                                <label class="font-section"> Can we typecast void * into int *?</label><br>
+                                                <input type="radio" id="option1" name="option1" class="Option-section" ><label style="margin-left: 1%;">Option1</label>
+                                                <input type="radio" id="option2" name="option1" class="Option-section" ><label style="margin-left: 1%;">Option2</label>
+                                                <br>
+                                                    <input type="radio" id="option3" name="option1" class="Option-section" ><label style="margin-left: 1%;"> Option3</label>
+                                                    <input type="radio" id="option4" name="option1"  class="Option-section" ><label style="margin-left: 1%;">Option4</label>    
+                                                    <br> 
+                                                    <hr>
+                                                    <label class="font-section"> Can we overload functions in C++?</label><br>
+                                                    <input type="radio" id="option1" name="option1" class="Option-section" ><label style="margin-left: 1%;">Option1</label>
+                                                    <input type="radio" id="option2" name="option1" class="Option-section" ><label style="margin-left: 1%;">Option2</label>
+                                                    <br>
+                                                    <input type="radio" id="option3" name="option1" class="Option-section" ><label style="margin-left: 1%;"> Option3</label>
+                                                    <input type="radio" id="option4" name="option1"  class="Option-section" ><label style="margin-left: 1%;">Option4</label>    
+                                                    <br> 
+                                                    <hr>
+                                                    <label class="font-section"> How to access and edit data in data file handling using structures</label><br>
+                                                    <input type="radio" id="option1" name="option1" class="Option-section" ><label style="margin-left: 1%;">Option1</label>
+                                                    <input type="radio" id="option2" name="option1" class="Option-section" ><label style="margin-left: 1%;">Option2</label>
+                                                    <br>
+                                                    <input type="radio" id="option3" name="option1" class="Option-section" ><label style="margin-left: 1%;"> Option3</label>
+                                                    <input type="radio" id="option4" name="option1"  class="Option-section" ><label style="margin-left: 1%;">Option4</label>    
+                                                    <br> 
+                                                    <hr>
+                                                        <label class="font-section"> Which operator has highest precedence?</label><br>
+                                                        <input type="radio" id="option1" name="option1" class="Option-section" ><label style="margin-left: 1%;">Option1</label>
+                                                        <input type="radio" id="option2" name="option1" class="Option-section" ><label style="margin-left: 1%;">Option2</label>
+                                                        <br>
+                                                        <input type="radio" id="option3" name="option1" class="Option-section" ><label style="margin-left: 1%;"> Option3</label>
+                                                        <input type="radio" id="option4" name="option1"  class="Option-section" ><label style="margin-left: 1%;">Option4</label>    
+                                                        <br> 
+                                                        <hr>
+                                                    
+                                                        <label class="font-section">What is size of void in C++?</label><br>
+                                                        <input type="radio" id="option1" name="option1" class="Option-section" ><label style="margin-left: 1%;">Option1</label>
+                                                        <input type="radio" id="option2" name="option1" class="Option-section" ><label style="margin-left: 1%;">Option2</label>
+                                                        <br>
+                                                        <input type="radio" id="option3" name="option1" class="Option-section" ><label style="margin-left: 1%;"> Option3</label>
+                                                        <input type="radio" id="option4" name="option1"  class="Option-section" ><label style="margin-left: 1%;">Option4</label>    
+                                                        <br> 
+                                                        <hr>
+                                            <!-- </div> -->
+                                        
+                                            <div class="col-md-12 mt-3" style="margin-left: 2% !important;margin-top: 2% !important;">
+                                                <button mat-raised-button type="submit" class="other-button-style btnflot pull-right mt-0" style="float:right;" id="Registration_Report" >
+                                                    CLOSE
+                                                    </button>
+                                                <button mat-raised-button type="submit" class="other-button-style btnflot pull-right mt-0" style="float:right;" id="Registration_Report" >
+                                                    SUBMITT
+                                                    </button>
+                                            </div>
+                    
+                    
+                                        </div>
+                    
+                                    </div>
+                                </div>
+                    
+
+
+
+
+                                <div *ngIf="status_View" >
+                                    <div id="status">
+                                        <div class="mb-4">
+                                            <h1>My Status <span class="inner">This is the section where you get messages regarding your application</span></h1>
+                                            <ul class="mt-4">
+                                                <li> Applied for offer & paid application fees.			</li>
+                                                <li> Received conditional offer letter.			</li>
+                                                <li> Pending documents sent			</li>
+                                                <li> Received confirmed offer letter			</li>
+                                                <li> Paid first installment tuition fees			</li>
+                                                <li>Arranged living funds			</li>
+                                                <li> Received fees receipt / acknowledgement			</li>
+                                                <li> Collected all required docs for visa application			</li>
+                                                <li> Filled visa application			</li>
+                                                <li> Submitted application for visa			</li>
+                                                <li> Received visa decision			</li>
+                                                <li>Arranged post departure facilities			</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+                    <!-- <div class="modal fade-scale" id="help-application" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog lg" role="document">
+                            <div class="modal-content newsletter">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+                                <div class="modal-body p-3 p-lg-4">
+                                    <h4 class="mb-3">How to get a Promotional code?</h4>
+                                    <p>Please contact your nearest : IELTS / Nodal centre or check the promotional email / message from our promoters or
+                                    previous students from where you got our reference.</p>
+                                    <p>You can also apply without a code,
+                                    but <span style="color: rgb(56, 118, 29);"> using a code saves you up to
+                                        500 $ on application fees.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="modal fade-scale" id="help-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content newsletter">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+                                <div class="modal-body p-3 p-lg-4">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-8">
+                                            <h4 class="mb-3" style="line-height: 35px;">ID pages of passport (First & last pages) & all mark sheets up to your highest qualification are only needed for an
+                                            offer letter</h4>                        
+                                            <div class="list">
+                                                <span class="violet">01</span> - If you already have IELTS -You can upload IELTS score card for a full confirmed offer / admission letter.
+                                                Or else<br>
+                                                <span class="violet">02</span> - Upload basic documents & get the conditional offer letter (showing the condition to clear the required IELTS) without
+                                                IELTS .Once you get your scores you can later upload it and get a new full confirmed offer letter. For more details you
+                                                can refer the required documents page of this website.<br>
+                                                <span class="violet">03</span> - Conditional offer ( conditions like - need to submit IELTS score card / final year mark sheet in case of mark list
+                                                waiting students) is enough for starting the education loan processing in case you need one.<br>
+                                                <span class="violet">04</span> - Some colleges (very few) may ask for an IELTS test booking proof to issue the conditional offer letter (eg: Conestoga
+                                                College, Canada).<br>
+                                                <span class="violet">05</span> - Anyways <span style="color:#38761d;font-weight:bold;display: initial;">Basic documents</span> are only needed for
+                                                starting the application &amp; obtaining a conditional offer letter .
+                                                <span style="color:#000;font-weight:bold;display: initial;">
+                                                    If any documents are missing or pending we will inform you by mail &amp; in the message section of this website so
+                                                    that you can easily upload them later.
+                                                </span><br>
+                                                <span class="violet">06</span> - Some countries like Singapore, Portugal, Sweden (for P.G in Engineering) do not need IELTS / TOEFL and issue a confirmed
+                                                offer letter (final acceptance / admission ) with these Basic documents.<br>
+                                                <span class="violet">07</span> - Countries with English as the mother tongue generally requires IELTS score.(eg: Canada, U.K, Ireland,New Zealand,
+                                                Australia). It is not mandatory for other countries.<br>
+                                                <span class="violet">08</span> - TOEFL is accepted instead of an IELTS score. PTE (Pearson Test of English) is also accepted.<br>
+                                                <span class="violet">09</span> - PTE is accepted in some colleges in Canada (like Fanshawe, Confederation )..<br>
+                                                <span class="violet">10</span> - Documents like Work experience certificates, other extra curricular activities etc are optional documents.<br>                            
+                                            </div>
+                                        </div>                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+                    <div class="row" *ngIf="!Entry_View">
+                        <div class="col-md-12" style="margin-top:40px ;">
+                            <div class="card">              
+                        <div class="row">     
+                            
+                            <div _ngcontent-xmy-c9="" class="col-md-1" style="margin-left:15px;margin-top:-20px;">
+                            <div _ngcontent-xmy-c9="" class="form-check top-to-crect-checkboxes-recipt-voucher" style="margin-bottom: 0.2rem;;">
+                                <label _ngcontent-xmy-c9="" class="form-check-label">
+                                <input type='checkbox' class="form-check-input" placeholder='Search...' [(ngModel)]="Look_In_Date" />
+                                <span _ngcontent-xmy-c9="" class="form-check-sign"><span _ngcontent-xmy-c9="" class="check"></span>
+                                </span></label></div>
+                                <label class="for-down-title-tabs-personal-details">Date</label>
+                            </div>
+                            
+
+
+
+
+                            <!-- <div class="col-md-2 label-to-crect-all-names-to-divs">
+                                <label class="col-md-4 label-down-alighn-supler-prhse-mstr-down label-to-crect-all-names-to-divs">From</label>
+                                <mat-form-field class="col-md-8 margin-lh-rh-to-crect-textbox ">
+                                <input matInput [matDatepicker]="dp1" placeholder="" name="Search_FromDate" [(ngModel)]="Search_FromDate">
+                                <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                                <mat-datepicker #dp1></mat-datepicker>
+                                </mat-form-field>
+                                </div> -->
+                                <!-- <div class="col-md-2 label-to-crect-all-names-to-divs">
+                                    <label class="col-md-4 label-down-alighn-supler-prhse-mstr-down label-to-crect-all-names-to-divs">From</label>
+                                <mat-form-field class="col-md-8 margin-lh-rh-to-crect-textbox ">
+                                <input matInput [matDatepicker]="dp2" placeholder=""  name="Search_ToDate"  [(ngModel)]="Search_FromDate">
+                                <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                                <mat-datepicker #dp2></mat-datepicker>
+                                </mat-form-field>
+                                </div> -->
+                                <div class="col-md-2 label-to-crect-all-names-to-divs">
+                                    <label class="col-md-4 label-down-alighn-supler-prhse-mstr-down label-to-crect-all-names-to-divs">From</label>
+                                <mat-form-field class="col-md-8 margin-lh-rh-to-crect-textbox ">
+                                    <input matInput [matDatepicker]="picker1"  id="date" readonly="readonly" required>
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                                <div class="col-md-2">
+                                    <label class="col-md-4 label-down-alighn-supler-prhse-mstr-down">TO</label>
+                                <mat-form-field class="col-md-8 margin-lh-rh-to-crect-textbox ">
+                                    <input matInput [matDatepicker]="picker2"  id="date"  readonly="readonly" required>
+                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <mat-datepicker #picker2></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+
+                        <div class="col-md-4">
+                            <label class="col-md-4" style="top:10px;"> Student Name</label>
+                            <!-- <mat-form-field class="col-md-8"> -->
+                            <input matInput type="text"   name="Search_Name">  
+                            <!-- </mat-form-field> -->
+                            </div>
+                            
+
+                        
+
+
+
+                            <div class="col-md-3">
+                                <label class="col-md-4" style="top:10px;">Phone</label>
+                                <!-- <mat-form-field class="col-md-8"> -->
+                                <input matInput type="text"   >  
+                                <!-- </mat-form-field> -->
+                                </div>
+
+
+
+                                <div class="col-md-3">
+                                    <label class="col-md-3 label-down-alighn-supler-prhse-mstr-down" style="top:0px;">Status</label>
+                                    <select  name="Student_.Student_Status_Id" required class="col-md-9 margin-lh-rh-to-crect-textbox select-user-block" style="max-width:70%;margin-left: 2%;">
+                                    <option ></option>
+                                    </select>
+                                </div>
+                            
+
+
+
+
+
+                                
+                                <div class="col-md-3">
+                                    <!-- <button mat-raised-button type="submit" (click)="Search_Student_Agent_Click()" class="btn btn-danger">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>  -->
+                                    <!-- <button mat-raised-button type="submit" (click)="Create_New()" class="btn btn-danger">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </button>  -->
+                                
+                                    <button name="Search" class="btn"> <i class="fa fa-search" aria-hidden="true"></i></button>
+                                    <button name="Close"  class="btn"> <i class="fa fa-plus" aria-hidden="true"></i></button>
+                                    </div>
+
+                                
+                                
+                                </div>  
+
+
+                            <div class="clearfix"></div>
+                        
+                            </div>
+                            </div>
+
+                        
+
+                    <div class="col-md-12" style="margin-top:20px;">
+                    <div class="card-plain">
+                            <div class="card-body">
+                        <div class="table-responsive">
+                            <div class="row grid_header">
+                                <div class="col-md-1">
+                                    Sl No
+                                </div>
+                                <div class="col-md-1">
+                                    Date
+                                </div>
+                                
+                                <div class="col-md-2">
+                                Student Name
+                                </div>
+                                <div class="col-md-1">
+                                Location
+                                </div>
+                                <div class="col-md-1">
+                                Phone
+                                </div>
+                                <div class="col-md-1">
+                                    Status
+                                </div>
+                                
+                                <div class="col-md-2">
+                                    Email
+                                </div>
+                                
+                                <div class="col-md-1">
+                                View
+                                </div>
+                                <!-- <div class="col-md-1">
+                                Delete
+                                </div> -->
+                            </div>
+                    <div [style.height.px]="myInnerHeight" itemSize="90" >
+
+                    
+                            <div >
+                                <div class="row grid_data">
+                            <div class="col-md-1">
+                              
+                            </div>
+                            <div class="col-md-1">
+                            
+                            </div>
+                            <div class="col-md-2">
+                            
+                            </div>
+                            
+                            <div class="col-md-1">
+                              
+                            </div>
+                            
+                            <div class="col-md-1">
+                              
+                            </div>
+                            
+                            <div class="col-md-1">
+                                
+                            </div>
+                            
+                            <div class="col-md-2">
+                              
+                            </div>
+                            
+                            <div class="col-md-1">
+                            
+                                    <button _ngcontent-gdi-c11="" 
+                                    class="btn btn-danger2" 
+                                    mattooltip="Edit Task" type="button" aria-describedby="cdk-describedby-message-1"
+                                    cdk-describedby-host=""
+                                    ng-reflect-position="above" ng-reflect-message="Edit Task"><span class="mat-button-wrapper">
+                                        <i _ngcontent-gdi-c11="" class="material-icons" >View</i></span>
+                                        <div class="mat-button-ripple mat-ripple" matripple="" ng-reflect-centered="false" 
+                                        ng-reflect-disabled="false" ng-reflect-trigger="[object HTMLButtonElement]"></div>
+                                        <div class="mat-button-focus-overlay"></div></button>   
+
+                            </div>
+
+                            
+                            <!-- <div class="col-md-1">
+                            
+                                <button _ngcontent-gdi-c11="" [hidden]="Student_Delete==false" 
+                                class="btn btn-danger1" 
+                                mattooltip="Remove" type="button" aria-describedby="cdk-describedby-message-1" cdk-describedby-host=""
+                                ng-reflect-position="above" ng-reflect-message="Remove"><span class="mat-button-wrapper">
+                                    <i _ngcontent-gdi-c11="" class="material-icons" 
+                                    (click)="Delete_Student(Student_Data_d.Student_Id,i)" >close</i></span>
+                                    <div class="mat-button-ripple mat-ripple" matripple="" ng-reflect-centered="false" 
+                                    ng-reflect-disabled="false" ng-reflect-trigger="[object HTMLButtonElement]"></div>
+                                    <div class="mat-button-focus-overlay"  ></div></button>          
+                            </div> -->
+                        </div>
+                    </div> 
+                    
+                    
+                    </div>
+                        </div>
+                        </div>    
+
+                        <div class="row col-md-12">
+
+                            <label class="entry-num">Entries : {{Total_Entries}}</label>
+                        </div>  
+
+
+                    
+                        <div class="row"  style="text-align: center;">
+                            <div class="col-md-12 buttons-next-previous">
+                                <button name="Previous" class="btn" (click)="previous_Click()" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                                <button name="Next" class="btn" (click)="Next_Click()" ><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+
+                        </div>    
+                        </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</section>

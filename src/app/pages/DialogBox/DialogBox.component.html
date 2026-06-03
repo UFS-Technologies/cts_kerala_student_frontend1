@@ -1,0 +1,46 @@
+<html>
+  <body class="mat-dialog-form">
+    <div class="mat-dialog-container">
+      <h3 class="main-title-contents" style="margin: 0% 0% 3% 0%; border-bottom: 0ch; color: #7a238c; font-weight: 600;" mat-dialog-title>{{ Heading }}</h3>
+
+      <div mat-dialog-content style="height: 100px;padding-top: 10%;">
+        <img class="image-conform-box img-cntnts-sme-lne-pop-up" style="width: 60px; Height:60px;" src='{{Image_Url}}'>
+        <p class="main-text-contents cntnts-sme-lne-pop-up" 
+        style="width: 400px;"><b>{{ message }}</b></p>
+        <!-- text-align:center; -->
+      </div>
+      <div mat-dialog-actions>      
+          <button mat-raised-button color="primary" type="submit" [hidden]="!show"
+          style="background-color:#7a238c;color:white;text-align:center;width:50px;
+          float:right;border-radius: 5px;border-color: #7a238c;" 
+          (click)="onNoClick()">{{ NoButton }}</button>
+       
+        <button mat-raised-button color="primary"  type="submit"
+        style="background-color:#7a238c;color:white;text-align:center;width:50px;margin-right: 10px;
+        float:right;border-radius: 5px;border-color: #7a238c;" 
+         (click)="onYesClick()">{{ YesButton }}</button>
+    
+      </div>   
+    </div>
+  </body>
+</html>
+
+<!-- <html>
+  <body class="mat-dialog-form" >
+    <div class="mat-dialog-container" style="Height:60%; ">
+      <h3 class="main-title-contents" style="margin: 0% 0% 3% 0%; border-bottom: 0ch; color: #7a238c; font-weight: 600;" mat-dialog-title>{{ Heading }}</h3>
+      <div mat-dialog-content>
+          <img class="image-conform-box img-cntnts-sme-lne-pop-up" style="width: 60px; Height:60px;" src='{{Image_Url}}'>
+        <p class="main-text-contents cntnts-sme-lne-pop-up" style="font-weight:bold;">{{ message }}</p>
+      </div>
+      <div mat-dialog-actions>
+        <div [hidden]="!show">
+          <button mat-raised-button class="other-button-style"  (click)="onNoClick()">{{ NoButton }}</button>
+      
+        </div>
+        <button mat-raised-button class="other-button-style"  (click)="onYesClick()">{{ YesButton }}</button>
+     
+      </div>
+    </div>
+  </body>
+</html> -->

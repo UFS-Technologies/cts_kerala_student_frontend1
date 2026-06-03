@@ -1,0 +1,72 @@
+<div id="wrapper">
+    <div class="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="pull-left hidden-xs" style="color: #fff;">info@ctskerala.in</p>
+                    <p class="pull-right" style="color: #fff; margin-bottom: 0;">
+                        <a (click)="Student_Login_Click()" style="cursor: pointer; background: #ef801a; color: #fff; padding: 2px 10px; border-radius: 4px; font-weight: 600; font-size: 12px; margin-right: 8px; text-decoration: none; display: inline-block; vertical-align: middle; transition: all 0.3s ease;">Student Login</a>
+                        <a (click)="C_Tech_Skill_Training_Centres_Click()" style="cursor: pointer; background: #ef801a; color: #fff; padding: 2px 10px; border-radius: 4px; font-weight: 600; font-size: 12px; margin-right: 15px; text-decoration: none; display: inline-block; vertical-align: middle; transition: all 0.3s ease;">Center Login</a>
+                        <span style="display: inline-block; vertical-align: middle; font-size: 13px;"><i class="fa fa-phone" style="margin-right: 5px;"></i>Tel No. 0471-2440033</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" style="margin-top: -5px;color: #fff !important;" (click)="Home_Click()" style="cursor: pointer;">
+                        <img src="assets/template/img/logo.png" alt="logo" style="height: 60px;" /></a>
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav">
+                        <li [class.active]="isActive('/home')"><a (click)="Home_Click()" style="cursor: pointer;">HOME</a></li>
+                        <li [class.active]="isActive('/About_Us')"><a (click)="About_Click()" style="cursor: pointer;">ABOUT US</a></li>
+                        <li class="dropdown" [class.active]="isActive('/Skill_Diploma') || isActive('/Skill_Identity_Programs') || isActive('/Skill_Proficiency_Programs') || isActive('/Trade_Competency_Programs') || isActive('/University_Program')">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">PROGRAMS<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a (click)="Skill_Diploma_Click()" style="cursor: pointer;">Certificate & Diploma Programs</a></li>
+                                <li><a (click)="Skill_Identity_Programs_Click()" style="cursor: pointer;">Skill Identity Programs</a></li>
+                                <li><a (click)="Skill_Proficiency_Programs_Click()" style="cursor: pointer;">Skill Proficiency Programs</a></li>
+                                <li><a (click)="Trade_Competency_Programs_Click()" style="cursor: pointer;">Trade Competency Programs</a></li>
+                                <li><a (click)="University_Program_Click()" style="cursor: pointer;">university program</a></li>
+                            </ul>
+                        </li>
+                        <li [class.active]="isActive('/Recognitions')"><a (click)="Recognitions_Click()" style="cursor: pointer;">RECOGNITIONS</a></li>
+
+                        <li class="dropdown" [class.active]="isActive('/Student_Login') || isActive('/C_Tech_Skill_Training_Centres')">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">EXAMINATION<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a (click)="Student_Login_Click()" style="cursor: pointer;">Student Login</a></li>
+                                <li><a (click)="C_Tech_Skill_Training_Centres_Click()" style="cursor: pointer;">Center Login</a></li>
+                            </ul>
+                        </li>
+                        <li [class.active]="isActive('/Online_Verification')"><a (click)="Online_Verification_Click()" style="cursor: pointer;">VERIFICATION</a></li>
+                        <li [class.active]="isActive('/Association')"><a (click)="Association_Click()" style="cursor: pointer;">ASSOCIATION</a></li>
+                        <li [class.active]="isActive('/Job')"><a (click)="Candidate_Click()" style="cursor: pointer;">JOB REGISTER</a></li>
+                        <li [class.active]="isActive('/Contact_Us')"><a (click)="Contact_Us_Click()" style="cursor: pointer;">CONTACT</a></li>
+                        
+                        <li *ngIf="(User_Name_ob|async)as Username" class="dropdown" [class.active]="isActive('/Student')">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-user"></i> {{Username}}<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a (click)="Student_Tab_Click(1)" style="cursor: pointer;">Profile</a></li>
+                                <li><a (click)="Student_Tab_Click(2)" style="cursor: pointer;">Course</a></li>
+                                <li><a (click)="Student_Tab_Click(7)" style="cursor: pointer;">Exam</a></li>
+                                <li><a (click)="Student_Tab_Click(6)" style="cursor: pointer;">Activities</a></li>
+                                <li><a (click)="Student_Tab_Click(4)" style="cursor: pointer;">Mark List</a></li>
+                                <li><a (click)="logout()" style="cursor: pointer;">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>

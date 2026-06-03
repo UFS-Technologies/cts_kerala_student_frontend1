@@ -1,0 +1,1158 @@
+<mat-option *ngIf="isLoading"><mat-spinner diameter="50"></mat-spinner></mat-option>                
+<!-- <div id='Topdiv'></div> -->                        
+<div *ngIf="!Instruction_Exam_View" style="margin-top:10%;">
+    <!-- [hidden]="Instruction_View==true || exam_View==true" -->
+    <div class="wrapper"  *ngIf="Entry_View">
+        <nav class="navbar navbar-inverse container tab-nav">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <ul class="tab-list">
+                        <li [class.current-tab]="activeTab == 1"><a class="navbar-brand" [class.tab-active]="activeTab == 1" [hidden]="Instruction_Exam_View==true" (click)="Tab_click(1)" onclick="addActive(this)">Profile </a>&nbsp; </li>
+                        <!-- <li><a class="navbar-brand"  (click)="Tab_click(2)" onclick="addActive(this)">Course</a>&nbsp; </li>
+                        <li><a class="navbar-brand"  (click)="Tab_click(3)" onclick="addActive(this)">Fess Receipt</a>&nbsp; </li>
+                        <li><a class="navbar-brand"  (click)="Tab_click(4)" onclick="addActive(this)">Mark List</a>&nbsp;</li> -->
+                        <li [class.current-tab]="activeTab == 2"><a class="navbar-brand" [class.tab-active]="activeTab == 2" *ngIf="Instruction_Exam_View==false" (click)="Tab_click(2)" onclick="addActive(this)">Course</a>&nbsp; </li>
+                        <li [class.current-tab]="activeTab == 7"><a class="navbar-brand" [class.tab-active]="activeTab == 7" *ngIf="Instruction_Exam_View==false" (click)="Tab_click(7)" onclick="addActive(this)">Exam</a>&nbsp; </li>
+                        <!-- <li><a class="navbar-brand"  *ngIf="Instruction_Exam_View==false && Registration==true "(click)="Tab_click(3)" onclick="addActive(this)">Fees</a>&nbsp; </li> -->
+                        <li [class.current-tab]="activeTab == 6"><a class="navbar-brand" [class.tab-active]="activeTab == 6" *ngIf="Instruction_Exam_View==false"(click)="Tab_click(6)" onclick="addActive(this)">Activities</a>&nbsp; </li>
+                        <li [class.current-tab]="activeTab == 4"><a class="navbar-brand" [class.tab-active]="activeTab == 4" *ngIf="Instruction_Exam_View==false" (click)="Tab_click(4)" onclick="addActive(this)">Mark List</a>&nbsp;</li>
+                        <!-- <li><a class="navbar-brand"  *ngIf="Instruction_Exam_View==false && Registration==true " (click)="Tab_click(5)" onclick="addActive(this)">Downloads</a>&nbsp;</li> -->
+                        <!-- <li><a class="navbar-brand"  [hidden]="Instruction_Exam_View==true && Registration==0 "  (click)="Tab_click(5)" onclick="addActive(this)">Exam</a>&nbsp;</li> -->
+                       <!-- <li><a class="navbar-brand"  (click)="Tab_click(5)" onclick="addActive(this)">Application Fee</a> </li>
+                        <li><a class="navbar-brand"  (click)="Tab_click(6)" onclick="addActive(this)">Status</a></li>-->
+                        <button type="button" *ngIf="Agent_Edit_e>0" class="close" aria-label="Close" (click)="Close_Click()">
+                            <span aria-hidden="true">×</span>
+                        </button>
+
+                    </ul>                   
+                </div>
+            </div>
+        </nav>
+        <div class="tab-body" id='loginpage' >
+            <div *ngIf="Profile_View">
+                <div id="profile">                                       
+                    <div class="row col-md-12 container form-section" >              
+                        <div class="col-md-4 container1">
+                            <form>                                           
+                                <div class="mb-2">Student Name<span style="color:#ef071e; font-size: 22px; vertical-align: -webkit-baseline-middle;">*</span></div>
+                                <input type="text" name="Student_Name" placeholder="First Name"  [(ngModel)]="Student_.Student_Name" class="input-style" />                                        
+                                <div class="mb-2">House No/Flat No</div>
+                                <input type="text" name="Flat No/House No" placeholder="Flat No/House No"  [(ngModel)]="Student_.Address1"  class="input-style" />                                                
+                                <div class="mb-2">Street</div>
+                                <input type="text" name="Street" placeholder="Street" [(ngModel)]="Student_.Address2"  class="input-style" />
+                                <div class="mb-2">Post</div>
+                                <input type="text" name="Post" placeholder="Post" [(ngModel)]="Student_.Address3" class="input-style" />
+                                <div class="mb-2">Pincode</div>
+                                <input type="text" name="Pincode" placeholder="Pincode" [(ngModel)]="Student_.Pincode"   class="input-style" />
+                                <div class="mb-2">District</div>
+                                <input type="text" name="Land Mark" placeholder="District" [(ngModel)]="Student_.Address4"  class="input-style" />
+                                
+                            </form>
+                        </div>                                         
+
+                        <div class="col-md-4 container1">
+                            <form>
+                                
+                                <div class="mb-2">Mobile<span style="color:#ef071e; font-size: 22px; vertical-align: -webkit-baseline-middle;">*</span></div>
+                                <input type="tel" name="Mobile" placeholder="Mobile" [(ngModel)]="Student_.Mobile"  class="input-style" />
+                                <div class="mb-2">Phone</div>
+                                <input type="tel" name="Phone" placeholder="Phone"  [(ngModel)]="Student_.Phone"  class="input-style" />
+                                <div class="mb-2">WhatsAppNo</div>
+                                <input type="tel" name="WhatsAppNo" placeholder="WhatsAppNo" [(ngModel)]="Student_.Whatsapp" class="input-style" />
+                                <div class="mb-2">Gender</div>
+                                <select class="input-style"  [(ngModel)]="Gender_" name="Student_.Gender">
+                                    <option *ngFor="let Gender of Gender_Data"  [ngValue]="Gender">{{Gender.Gender_Name}}
+                                    </option>
+                                </select>
+                                <div class="mb-2">Date Of Birth</div>
+                                <input type="date" name="DOB" class="input-style" [(ngModel)]="Student_.DOB">
+                                <div class="mb-2">Registartion No</div>
+                                <input type="text" readonly name="Registartion No" placeholder="Registartion No"   class="input-style" style="background-color:white;" [(ngModel)]="Student_.Registration_No"/>
+                            </form>
+                        </div>
+                       
+                        <div class="col-md-4 container2">
+                            <form>                                                   
+                                <div class="mb-2">Email<span style="color:#ef071e; font-size: 22px; vertical-align: -webkit-baseline-middle;">*</span></div>
+                                <input type="email" name="Email" placeholder="Email" [(ngModel)]="Student_.Email"  class="input-style">
+                                <div class="mb-2">Password<span style="color:#ef071e; font-size: 22px; vertical-align: -webkit-baseline-middle;">*</span></div>
+                                <input type="text" name="Password" placeholder="Password"  [(ngModel)]="Student_.Password" class="input-style" />
+
+                                
+                                    <!-- <div class="mb-2">Role No</div>
+                                    <input type="text" name="Role No" placeholder="Role No"  [(ngModel)]="Student_.Role_No"   class="input-style" /> -->
+    
+                                    <div class="mb-2">CourseName</div>
+                                    <input type="text" name="Student_.Course_Name" placeholder="CourseName" [(ngModel)]="Student_.Course_Name"   class="input-style" />                        
+                                    <div class="form-row  mb-2">                                                          
+                                        <div class="square">
+                                        <img id="output" width="200" src={{ImageFile_Photo_view}} />
+                                        </div>                                                           
+                                        </div>                                                 
+                            </form>
+                        </div>                               
+                    </div>
+                </div>
+
+                <div class="col-md-12 pl-3 mt-0 mb-2" *ngIf="Document_View">
+                    <div> 
+                    <div class="dt-card mt-2">
+                        <div class="dt-card__body">                    
+                        <div class="dt-card__header">
+                            <div class="dt-card__heading">                                                   
+                                    <h3><i class="icon icon-users icon-fw icon-lg"></i><b style="margin-bottom:20px;">List of Documents</b></h3>
+                                <div classs="mb-2"></div>
+                                <hr class="lineheader">
+                                    <div class="col-md-12 info-message mt-0 mb-3">Note: Please Upload Max 5MB Size For Each Document.</div>                                    
+                            </div>
+                        </div>            
+                        <div class="card horizontal mb-1" >          
+                            <div class="card-stacked" >
+                                <div class="card-body pb-0 pt-1">                                                        
+                                            <div class="form-row">
+                                            <div class="col-md-6">
+                                            <label class="col-md-3 col-sm-3 col-form-label"style="margin-left:-13px;">Photo</label>                                                        
+             
+                                            <input type="text"   placeholder="Photo"   name="Student_.Photo"  class="input-style" [(ngModel)]="Student_.Photo"/>
+                                            <button class="other-button-style  font-weight-bold upload uploadphoto mr-1"   type="button" (click)="fileInput4.click()">Upload
+                                            <input #fileInput4 type="file"   id="btnUpload"  value="Upload" name="Photo"  style="display:none;"  class="upload" [(ngModel)]="File" (change)="File_Change_Photo($event)"  /> 
+                                            </button>                                                  
+                                            </div>          
+                                            <div class="col-md-6">
+                                            <label class="col-md-3 col-sm-3 col-form-label" style="margin-left:-13px;">Aadhaar</label>
+                                            <input type="text"   placeholder="Aadhaar"   name="Student_.Aadhaar"  class="input-style" [(ngModel)]="Student_.Aadhaar"/>
+                                            <button class="other-button-style  font-weight-bold upload uploadphoto mr-1"   type="button" (click)="fileInput5.click()">Upload
+                                            <input #fileInput5 type="file"   id="btnUpload"  value="Upload" name="Aadhaar"  style="display:none;"  class="upload" [(ngModel)]="File" (change)="File_Change_Aadhaar($event)"  /> 
+                                            </button>
+                             
+                                            </div>
+                                
+                                </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>            
+<div class="card horizontal mb-1" >          
+<div class="card-stacked" >
+    <div class="card-body pb-0 pt-1">            
+                <div class="form-row">
+                <div class="col-md-6">
+<label class="col-md-3 col-sm-3 col-form-label" style="margin-left:-13px;">Document</label>
+<input type="text"  name="Display_File_Name_" [(ngModel)]="Display_File_Name_" value="Display_File_Name_" readonly   class="input-style"/>
+<button class="other-button-style  font-weight-bold upload uploadphoto mr-1"  type="button"  (click)="fileInput.click()">Upload
+<input #fileInput type="file" name="File" value="Upload"  id="btnUpload" [(ngModel)]="File" (change)="File_Change_Document($event)" style="display:none;" class="upload" /> </button>
+
+
+</div>
+<div class="col-md-6" style="margin-top:3%!important">
+<input type="text"  name ="Document_Description" [(ngModel)]="Document_Description" class="input-style" placeholder="Description">
+
+<button class=" col-md-5 col-sm-3 btn ml-2 mb-2 " (click)="Add_Document()" style="background-color: #0db195;float:right">Add Other Documents</button>
+    
+
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+
+                        
+                            <div class="mb-0">                               
+                                    <div class="dt-module__content ps-custom-scrollbar" style="height:150px; overflow-y: scroll;">                                    
+                                        <div class="card horizontal mb-1" *ngFor="let Items_ of Document_Array; ">          
+                                            <div class="card-stacked" >
+                                                <div class="card-body pb-1 pt-2"  >
+                                                    <div class="d-flex flex-wrap mb-0"  >                                                                           
+                        
+                                                                <div class="d-flex flex-wrap mb-1"  >
+                                                                    <!-- <div class="pr-3"><span >{{Items_["Document_Name"]}}</span></div> -->
+                                                               
+                                                                <div class="pr-3">File Name : <span>{{Items_["Document_File_Name"]}}</span></div>
+                                                                <div class="pr-3">Descripition : <span>{{Items_["Document_Name"]}}</span></div>
+
+                                                            </div>    
+                                                            <div>
+                                                        
+                                                            </div>
+                        
+                                                    </div>
+                        
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                             
+                                                                             
+                                                                      
+                            </div>
+                        
+                  
+                    </div>
+                </div>
+                </div> 
+                </div>
+                <div class="row">
+                <div class="col-md-12 mb-4">
+                    <button name="Save" class="btn" style="float: right;" (click)="Save_Student_front()" >Save</button>
+                
+                    <button name="close" class="btn mr-2" style="float: right;"  (click)="Close_Click()" >Close</button>
+                </div>
+            </div>
+            </div>
+            <div> 
+                
+                
+
+
+
+                <div *ngIf="Course_View" >
+                    <div id="application">                                       
+                        <div class="row col-md-12 container form-section" >                                        
+                            <div class="col-md-6 container1">
+                                <form>
+                                    <div>Course</div>
+                                    <input type="text" name="CourseName" readonly  placeholder="Course Name" [(ngModel)]="Student_Course_.Course_Name" class="input-style" style="background-color:white;" />
+                                
+                                    <div>Fees Type</div>
+                                    <input type="text" name="CourseType" readonly placeholder="Course Type"  [(ngModel)]="Student_Course_.Course_Type_Name"  class="input-style" style="background-color:white;" />
+    
+                                    
+
+                                </form>
+                            </div>
+                            <div class="col-md-6 container1">
+                                <form>  
+                                    
+                                    <div>Start Date</div>
+                                    <input type="text"  readonly name="Student_Course_.Start_Date" placeholder="Start Date" [(ngModel)]="Student_Course_.Start_Date"  class="input-style" style="background-color:white;" />
+
+                                    <!-- <div>Course Fees</div> -->
+                                    <!-- <input type="text" readonly name="Student_Course_.Total_Fees" placeholder="Course Fees" [(ngModel)]="Student_Course_.Total_Fees"   class="input-style" style="background-color:white;" /> -->
+                                    <div>Date of Completion</div>
+                                    <input type="text" readonly name="DateofCompleition" placeholder="Date of Completion" [(ngModel)]="Student_Course_.End_Date"  class="input-style" style="background-color:white;" />
+                                    
+    
+                                </form>
+                            </div>                                          
+                   
+                            <div class="col-md-12 pl-3 pr-8 mt-2" style="border: 1">
+                                <div class="container-importgrid"> 
+                                <!-- <div class="dt-card mb-0 pb-1 " style="background-color: #ffff;" >  
+                                    <h3><b>Subject Details</b></h3> 
+                    <div class="table-responsive">
+                        <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format">
+                            <thead>
+                            <th> 
+                                Subject 
+                            </th>
+                            <th>
+                                Year/Semester
+                            </th> 
+                            <th>
+       
+                                </th>
+                             
+                            
+                            <th></th>
+                            </thead>
+                            <tbody *ngFor="let Subject1 of Subject_Data; let i = index" >          
+                                <tr>
+                                <td style="width: 50% !important;">
+                                    {{Subject1["Subject_Name"]}}
+                                </td>
+                                <td style="width: 23% !important;">
+                                    {{Subject1["Part_Name"]}}
+                                </td>
+                                <td><div> <button style="background-color: gray;"  *ngIf="Subject1.Exam_Attended_Status==0 && Subject1.Online_Exam_Status==1" mat-raised-button type="submit" class="other-button-style btnflot pull-right mt-0" id="Write_Exam" (click)="Write_Exam(Subject1)" >
+                                Write Exam</button>
+                                <button style="background-color: green;" *ngIf="Subject.Exam_Attended_Status==2 && Subject.Online_Exam_Status==1"  mat-raised-button type="submit" class="other-button-style btnflot pull-right mt-0" id="View_Result">
+                                    View Result</button>
+                            </div>
+                                    </td>
+                                                                                         
+                                    </tr>
+                            </tbody>                                                
+                            </table>                                        
+                        </div>                                        
+                        </div> -->
+                        </div>
+                        </div>                        
+                        </div>                        
+                    </div>
+                </div>   
+                
+                
+ <div *ngIf="Exam_Tab_View" >
+                    <div id="application">                                       
+                        <!-- <div class="row col-md-12 container form-section" >                                         -->
+                            <!-- <div class="col-md-6 container1">
+                                <form>
+                                    <div>Course</div>
+                                    <input type="text" name="CourseName" readonly  placeholder="Course Name" [(ngModel)]="Student_Course_.Course_Name" class="input-style" style="background-color:white;" />
+                                
+                                    <div>Fees Type</div>
+                                    <input type="text" name="CourseType" readonly placeholder="Course Type"  [(ngModel)]="Student_Course_.Course_Type_Name"  class="input-style" style="background-color:white;" />
+    
+                                    
+
+                                </form>
+                            </div> -->
+                            <!-- <div class="col-md-6 container1">
+                                <form>  
+                                    
+                                    <div>Start Date</div>
+                                    <input type="text"  readonly name="Student_Course_.Start_Date" placeholder="Start Date" [(ngModel)]="Student_Course_.Start_Date"  class="input-style" style="background-color:white;" /> -->
+
+                                    <!-- <div>Course Fees</div> -->
+                                    <!-- <input type="text" readonly name="Student_Course_.Total_Fees" placeholder="Course Fees" [(ngModel)]="Student_Course_.Total_Fees"   class="input-style" style="background-color:white;" /> -->
+                                    <!-- <div>Date of Completion</div>
+                                    <input type="text" readonly name="DateofCompleition" placeholder="Date of Completion" [(ngModel)]="Student_Course_.End_Date"  class="input-style" style="background-color:white;" />
+                                    
+    
+                                </form>
+                            </div>                                           -->
+                   
+                            <div class="col-md-12 pl-3 pr-8 mt-2" style="border: 1">
+                                <div class="container-importgrid"> 
+                                <div class="dt-card mb-0 pb-1 " style="background-color: #ffff;" >  
+                                    <h3><b>Exam Details</b></h3> 
+                    <div class="table-responsive">
+                        <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format">
+                            <thead>
+                            <th> 
+                                Subject 
+                            </th>
+                            <th>
+                                Year/Semester
+                            </th> 
+                            <th>
+       
+                                </th>
+                             
+                            
+                            <th></th>
+                            </thead>
+                            <tbody *ngFor="let Subject1 of Subject_Data; let i = index" >          
+                                <tr>
+                                <td style="width: 50% !important;">
+                                    {{Subject1["Subject_Name"]}}
+                                </td>
+                                <td style="width: 23% !important;">
+                                    {{Subject1["Part_Name"]}}
+                                </td>
+                                <td><div> <button style="background-color: gray;"  *ngIf="Subject1.Exam_Attended_Status==0 && Subject1.Online_Exam_Status==1" mat-raised-button type="submit" class="other-button-style btnflot pull-right mt-0" id="Write_Exam" (click)="Write_Exam(Subject1)" >
+                                Write Exam</button>
+                                <!-- <button style="background-color: green;" *ngIf="Subject.Exam_Attended_Status==2 && Subject.Online_Exam_Status==1"  mat-raised-button type="submit" class="other-button-style btnflot pull-right mt-0" id="View_Result">
+                                    View Result</button> -->
+                            </div>
+                                    </td>
+                                                                                         
+                                    </tr>
+                            </tbody>                                                
+                            </table>                                        
+                        </div>                                        
+                        </div>
+                        </div>
+                        </div>                        
+                        <!-- </div>                         -->
+                    </div>
+                </div>   
+                
+
+
+                <div *ngIf="fee_View" >
+                    <div id="document">                                          
+                        <div class="col-md-12 pl-3 pr-8 mt-2" style="border: 1">
+                            <div class="container-feesgrid" style="    margin-left: -3% !important;"> 
+                            <div class="dt-card mb-0 pb-1 " style="background-color: #ffff;" > 
+                                <h3><b> Installment Structure</b></h3> 
+                <div class="table-responsive">
+                        <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format">
+                        
+                        <thead >
+                     
+                        <th> Due Date </th>
+                        <th>Total Amount</th>
+                        <th style="text-align:right"> Balance Amount</th>
+                        <th></th>
+                        </thead>
+                        <tbody *ngFor="let Fees of Fees_Instalment; let i = index" >          
+                            <tr>
+                         
+                            <td> {{Fees["Due_Date"]}}</td>
+                           <td >  {{Fees["Fees_Amount"]}}</td>
+                            <td style="text-align:right">  {{Fees["Balance_Amount"]}}</td>
+                            <td>
+                                <div>  
+                        <!-- <button [hidden]="Fees.Status==1" style="background-color: green;" mat-raised-button type="submit" class="other-button-style btnflot pull-right mt-0" id="payment">
+                        PAY
+                    </button> -->
+                             </div>
+                            </td>
+                        </tr>
+                        </tbody>                                            
+                        </table>
+                        
+                       
+
+
+                    </div>   
+                    
+                    
+                    <!-- <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format">
+                        <tbody *ngFor="let Fees1 of Fees_Instalment; let i= index">          
+                        <tr>
+                        <table >
+                        <thead class="thead"> 
+                            <th> Due Date</th>
+                             <th >Amount:{{Fees1.Amount}}</th>
+                             <th style="text-align:right"> Balance Amount</th>
+                        <th class="col-md-4"></th>
+                        </thead>
+                        <tbody *ngFor="let Fees of Fees_Instalment; let i= index">
+                       
+                            
+                            <td> {{Fees["Due_Date"]}}</td>
+                           <td >  {{Fees["Fees_Amount"]}}</td>
+                            <td style="text-align:right">  {{Fees["Balance_Amount"]}}</td>
+                        </tbody>
+                        </table>
+                        </tr>
+                        </tbody>         
+                        </table> -->
+
+
+
+
+                    </div>
+                    </div>
+                    </div>                        
+                    <div class="col-md-12 pl-3 pr-8 mt-2" style="border: 1">
+                        <div class="container-feesgrid" style="    margin-left: -3% !important;"> 
+                        <div class="dt-card mb-0 pb-1 " style="background-color: #ffff;" >  
+                            <h3><b>Payment History</b></h3>
+                    <div class="table-responsive">
+                    <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format">
+                    <thead>
+                    <th> Paid On </th>
+                    <!-- <th> Fees</th> -->
+                    <th> Voucher No </th> 
+                    <th style="text-align:right"> Amount </th>
+                    <th> Description</th>
+                    <th></th>
+                    </thead>
+                    <tbody *ngFor="let payment_history of Payment_History; let i = index" >          
+                        <tr>
+                        <td>{{payment_history["Date"]}}</td>
+                        <!-- <td>{{payment_history["Fees_Type_Name"]}}</td> -->
+                        <td>{{payment_history["Voucher_No"]}}</td>
+                        <td style="text-align:right">{{payment_history["Amount"]}}</td>
+                        <td>{{payment_history["Description"]}} </td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <th>  </th>
+                        <th>Total </th>
+                        <th style="text-align:right"> {{Total_Amount}}.00  </th> 
+                        <th > </th>
+                        <th>  </th>
+                        <th></th>
+                        </thead>
+                    </table>
+                   </div>
+                   </div>
+                   </div>
+                  </div>
+                 </div>
+                </div>
+
+
+                <div *ngIf="activities_View" >
+                    <div id="application">                                       
+                        <div class="row col-md-12 container form-section" >                                        
+                            <div class="col-md-4 container1">
+                                <form> 
+                                    <div>Activities<span style="color:#ef071e; font-size: 22px; vertical-align: -webkit-baseline-middle;">*</span></div>
+                                       <select [(ngModel)]="Activity_" name="Activity_.Activity" required class="input-style">
+                                        <option *ngFor="let Activity of Activity_Data" [ngValue]="Activity">{{Activity.Activity_Name}}</option>
+                                        </select>
+                                </form>
+                            </div>
+                            <div class="col-md-4 container1">
+                                <form> 
+                                    <div>Amount</div>
+                                    <input readonly type="text" name="Activity_.Amount" placeholder=""  [(ngModel)]="Activity_.Amount"  class="input-style" style="background-color:white;" />
+                                    <!-- <select [(ngModel)]="Activity_" name="Activity_.Activity" required class="input-style">
+                                    <option *ngFor="let Activity of Activity_Data" [ngValue]="Activity">{{Activity.Amount}}</option>
+                                    </select> -->
+                                </form>
+                            </div>
+                            <div class="col-md-4 container1">
+                                <form> 
+                                    <div>Description</div>
+                                    <input type="text" name="CourseType" placeholder="Description"  [(ngModel)]="ActivityDetails_.Descripition"  class="input-style" style="background-color:white;" />
+                                </form>
+                            </div>
+                           
+                            <div class="col-md-12">
+                                <button name="Update" class="btn"(click)="Save_Activity_Details()" style="float: right;" >Save</button>
+
+                            </div>
+                                                                
+                   
+                            <div class="col-md-12 pl-3 pr-8 mt-2" style="border: 1">
+                                <div class="container-importgrid"> 
+                                <div class="dt-card mb-0 pb-1 " style="background-color: #ffff;" >  
+                                    <h3><b>Activity History</b></h3> 
+                    <div class="table-responsive">
+                        <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format">
+                            <thead>
+                             <th>  Activities </th> 
+                             <th>  Amount     </th> 
+                             <th>  Description</th> 
+                             <th></th>
+                            </thead>
+                            <tbody *ngFor="let ActivityDetails of ActivityDetails_Datas; let i = index" >          
+                                <tr>
+                                <td style="width: 50% !important;">
+                                    {{ActivityDetails["Activity_Name"]}}
+                                </td>
+                                <td style="width: 23% !important;">
+                                    {{ActivityDetails["Amount"]}}
+                                </td>
+                               
+                                <td style="width: 23% !important;">
+                                    {{ActivityDetails["Descripition"]}}
+                                </td>
+                                                                                
+                                    </tr>
+                            </tbody>                                                
+                            </table>                                        
+                        </div>                                        
+                        </div>
+                        </div>
+                        </div>                        
+                        </div>                        
+                    </div>
+                </div> 
+
+                <!-- <div class="table-responsive" >
+                    <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format">
+                        <thead>
+                            <th>
+                                <h4><b style="color: #3f6ad8;font-weight: 900;">Select Year/Semester</b></h4></th>
+                            <th></th>
+                        </thead>
+                        <tbody *ngFor="let Part_D of Student_Mark_Part_Data; let i = index">          
+                            <tr>
+                                <td style="font-weight: 500;">{{Part_D["Part_Name"]}}&nbsp;&nbsp;&nbsp;{{Part_D["Month_Name"]}}&nbsp;&nbsp;&nbsp;{{Part_D["Year_Name"]}}</td>
+                                <td><button  class="save-button-style btnflot" (click)="Get_Student_Mark(Part_D)" type="submit">View Details</button></td>  
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div> -->
+
+
+
+
+
+
+
+                    <div *ngIf="mark_View" >
+                        <div>                                                                            
+                            <div class="col-md-12 pl-3 pr-8 mt-2" style="border: 1">
+                                <div class="container-feesgrid" style="    margin-left: -3% !important;"> 
+                                <div class="dt-card mb-0 pb-1 " style="background-color: #ffff;" > 
+                                    <h3><b></b></h3> 
+                    <div class="table-responsive"  >
+                        <div> 
+                        <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format" >
+                <thead>
+                <th><b style="color: #3f6ad8;font-weight: 900;">Select Year/Semester</b></th>
+                 
+                
+                <th></th>
+        </thead>
+        <tbody *ngFor="let Part_D of Student_Mark_Part_Data; let i = index" >          
+            <tr>
+                <td style="font-weight: 500;"><b style="color: #4ec9ee;">{{Part_D["Part_Name"]}}</b>&nbsp;&nbsp;&nbsp;<b style="color: #50c900;">{{Part_D["Month_Name"]}}</b>&nbsp;&nbsp;&nbsp;<b style="color: #50c900;">{{Part_D["Year_Name"]}}</b></td>
+                <td>
+                    <!-- <button  class="save-button-style btnflot" (click)="Get_Student_Mark(Part_D)" type="submit">View Details</button> -->
+                    <button  mat-raised-button type="submit"  style="background-color: #3b9315;float: right;"class="other-button-style  mt-0" (click)="Get_Student_Mark(Part_D)"  >
+                        View Details
+                    </button>
+               
+                </td>  
+
+            <!-- <td>{{Mark_List["Subject_Name"]}}</td> -->
+            
+            
+            </tr>
+        </tbody>
+    
+    </table>
+    </div>
+    <div class="col-md-12">
+    <!-- <button  mat-raised-button type="submit"  style="background-color: #3b9315;float: right;"class="other-button-style  mt-0" id="result_download" (click)="downloadPDF()" >
+        View Details
+    </button> -->
+    </div>
+    </div>
+    
+    </div>
+    </div>
+    </div>
+    
+    </div>
+    
+                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+
+
+                    
+
+
+                <div *ngIf="Mark_list_view" >
+                    <div>                                                                            
+                        <div class="col-md-12 pl-3 pr-8 mt-2" style="border: 1">
+                            <div class="container-feesgrid" style="    margin-left: -3% !important;"> 
+                            <div class="dt-card mb-0 pb-1 " style="background-color: #ffff;" > 
+                                <h3><b></b></h3> 
+                <div class="table-responsive"  >
+                    <div> 
+                    <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format" >
+            <thead>
+            <th>Subject Name</th>
+            <th>Minimum Mark</th> 
+            <th>Maximum Mark</th>
+            <th>Obtained Mark</th>
+            <th>Status</th>
+            <th></th>
+    </thead>
+    <tbody *ngFor="let Mark_List of Mark_List_Data;" >          
+        <tr>
+        <td>{{Mark_List["Subject_Name"]}}</td>
+        <td>{{Mark_List["Minimum_Mark"]}}</td>
+        <td>{{Mark_List["Maximum_Mark"]}}</td>
+        <td>{{Mark_List["Mark_Obtained"]}}</td>
+        <td>{{Mark_List["Exam_Status_Name"]}}</td>
+        </tr>
+    </tbody>
+
+</table>
+</div>
+<div class="col-md-12">
+    <button  mat-raised-button type="submit"  style="background-color: #242525;float: right;"class="other-button-style  mt-0" id="result_download" (click)="close_marklistview()" >
+        Back
+        </button>
+    
+<button  mat-raised-button type="submit"  style="background-color: #3b9315;float: right;"class="other-button-style  mt-0" id="result_download" (click)="downloadPDF()" >
+Download
+</button>
+
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+                 </div>
+
+
+
+
+                 
+
+
+
+
+
+
+                <div *ngIf="status_View" >
+                    <div class="col-md-12 pl-3 pr-8 mt-2" style="border: 1">
+                        <div class="container-feesgrid" style="    margin-left: -3% !important;"> 
+                        <div class="dt-card mb-0 pb-1 " style="background-color: #ffff;" > 
+                            <h3><b></b></h3> 
+                <div class="table-responsive"  >
+                <div> 
+                <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format" >
+                    <thead>
+                    <th>
+                   Date
+                    </th>
+                    <th>
+                  Document
+                    </th> 
+                  
+                    <th>Download</th>
+                    <th></th>
+                    </thead>
+                    <tbody *ngFor="" >          
+                        <tr>
+                        <td>
+                            11-09-2021
+                        </td>
+                        <td>
+                           Hall Ticket
+                        </td>      
+                            <!-- <td>
+                            {{Mark_List["Grade"]}}
+                        </td> -->
+                        <td>
+                            <button  mat-raised-button type="submit"  style="background-color: #3b9315;float: right;"class="other-button-style  mt-0" id="result_download"  >
+                                Download
+                                </button>
+                        </td>
+                    
+                    </tr>
+                    </tbody>
+                    
+                    </table>
+                </div>
+                
+                </div>
+                
+                </div>
+                </div>
+                </div>
+                
+                </div>
+               
+
+   
+    </div>
+    </div>
+    </div>
+</div>
+
+
+<div class="modal fade-scale" id="help-application" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog lg" role="document">
+        <div class="modal-content newsletter">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+            <div class="modal-body p-3 p-lg-4">
+                <h4 class="mb-3">How to get a Promotional code?</h4>
+                <p>Please contact your nearest : IELTS / Nodal centre or check the promotional email / message from our promoters or
+                previous students from where you got our reference.</p>
+                <p>You can also apply without a code,
+                but <span style="color: rgb(56, 118, 29);"> using a code saves you up to
+                    500 $ on application fees.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade-scale" id="help-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content newsletter">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+            <div class="modal-body p-3 p-lg-4">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <h4 class="mb-3" style="line-height: 35px;">ID pages of passport (First & last pages) & all mark sheets up to your highest qualification are only needed for an
+                        offer letter</h4>                        
+                        <div class="list">
+                            <span class="violet">01</span> - If you already have IELTS -You can upload IELTS score card for a full confirmed offer / admission letter.
+                            Or else<br>
+                            <span class="violet">02</span> - Upload basic documents & get the conditional offer letter (showing the condition to clear the required IELTS) without
+                            IELTS .Once you get your scores you can later upload it and get a new full confirmed offer letter. For more details you
+                            can refer the required documents page of this website.<br>
+                            <span class="violet">03</span> - Conditional offer ( conditions like - need to submit IELTS score card / final year mark sheet in case of mark list
+                            waiting students) is enough for starting the education loan processing in case you need one.<br>
+                            <span class="violet">04</span> - Some colleges (very few) may ask for an IELTS test booking proof to issue the conditional offer letter (eg: Conestoga
+                            College, Canada).<br>
+                            <span class="violet">05</span> - Anyways <span style="color:#38761d;font-weight:bold;display: initial;">Basic documents</span> are only needed for
+                            starting the application &amp; obtaining a conditional offer letter .
+                            <span style="color:#000;font-weight:bold;display: initial;">
+                                If any documents are missing or pending we will inform you by mail &amp; in the message section of this website so
+                                that you can easily upload them later.
+                            </span><br>
+                            <span class="violet">06</span> - Some countries like Singapore, Portugal, Sweden (for P.G in Engineering) do not need IELTS / TOEFL and issue a confirmed
+                            offer letter (final acceptance / admission ) with these Basic documents.<br>
+                            <span class="violet">07</span> - Countries with English as the mother tongue generally requires IELTS score.(eg: Canada, U.K, Ireland,New Zealand,
+                            Australia). It is not mandatory for other countries.<br>
+                            <span class="violet">08</span> - TOEFL is accepted instead of an IELTS score. PTE (Pearson Test of English) is also accepted.<br>
+                            <span class="violet">09</span> - PTE is accepted in some colleges in Canada (like Fanshawe, Confederation )..<br>
+                            <span class="violet">10</span> - Documents like Work experience certificates, other extra curricular activities etc are optional documents.<br>                            
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="!Entry_View">
+    <div class="col-md-12" style="margin-top:40px ;">
+        <div class="card">              
+    <div class="row">     
+        
+        <div _ngcontent-xmy-c9="" class="col-md-1" style="margin-left:15px;margin-top:-20px;">
+        <div _ngcontent-xmy-c9="" class="form-check top-to-crect-checkboxes-recipt-voucher" style="margin-bottom: 0.2rem;;">
+            <label _ngcontent-xmy-c9="" class="form-check-label">
+            <input type='checkbox' class="form-check-input" placeholder='Search...' [(ngModel)]="Look_In_Date" />
+            <span _ngcontent-xmy-c9="" class="form-check-sign"><span _ngcontent-xmy-c9="" class="check"></span>
+            </span></label></div>
+            <label class="for-down-title-tabs-personal-details">Date</label>
+        </div>                            
+<div class="col-md-2 label-to-crect-all-names-to-divs">
+                <label class="col-md-4 label-down-alighn-supler-prhse-mstr-down label-to-crect-all-names-to-divs">From</label>
+            <mat-form-field class="col-md-8 margin-lh-rh-to-crect-textbox ">
+                <input matInput [matDatepicker]="picker1"  id="date" readonly="readonly" required>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+        </div>
+            <div class="col-md-2">
+                <label class="col-md-4 label-down-alighn-supler-prhse-mstr-down">TO</label>
+            <mat-form-field class="col-md-8 margin-lh-rh-to-crect-textbox ">
+                <input matInput [matDatepicker]="picker2"  id="date"  readonly="readonly" required>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+    <div class="col-md-4">
+        <label class="col-md-4" style="top:10px;"> Student Name</label>                       
+        <input matInput type="text"   name="Search_Name">                      
+        </div>                
+        <div class="col-md-3">
+            <label class="col-md-4" style="top:10px;">Phone</label>                           
+            <input matInput type="text"   >                              
+            </div>
+            <div class="col-md-3">
+                <label class="col-md-3 label-down-alighn-supler-prhse-mstr-down" style="top:0px;">Status</label>
+                <select  name="Student_.Student_Status_Id" required class="col-md-9 margin-lh-rh-to-crect-textbox select-user-block" style="max-width:70%;margin-left: 2%;">
+                <option *ngFor="let Status_T of Student_Status_Data" [ngValue]="Status_T">{{Status_T.Student_Status_Name}}</option>
+                </select>
+            </div>                   
+            <div class="col-md-3">                                 
+                <button name="Search" class="btn"> <i class="fa fa-search" aria-hidden="true"></i></button>
+                <button name="Close"  class="btn"> <i class="fa fa-plus" aria-hidden="true"></i></button>
+                </div>             
+            </div>  
+        <div class="clearfix"></div>
+    
+        </div>
+        </div>                       
+<div class="col-md-12" style="margin-top:20px;">
+<div class="card-plain">
+        <div class="card-body">
+    <div class="table-responsive">
+        <div class="row grid_header">
+            <div class="col-md-1">
+                Sl No
+            </div>
+            <div class="col-md-1">
+                Date
+            </div>
+            
+            <div class="col-md-2">
+            Student Name
+            </div>
+            <div class="col-md-1">
+            Location
+            </div>
+            <div class="col-md-1">
+            Phone
+            </div>
+            <div class="col-md-1">
+                Status
+            </div>
+            
+            <div class="col-md-2">
+                Email
+            </div>
+            
+            <div class="col-md-1">
+            View
+            </div>
+         
+        </div>
+<div [style.height.px]="myInnerHeight" itemSize="90" >
+
+
+        <div *ngFor="let Student_Data_d of Student_Data; let i = index">
+            <div class="row grid_data">
+        <div class="col-md-1">
+            {{ i+1 }}
+        </div>
+        <div class="col-md-1">
+            {{Student_Data_d["Entry_Date"]}}
+        </div>
+        <div class="col-md-2">
+            {{Student_Data_d["Student_Name"]}}
+        </div>
+        
+        <div class="col-md-1">
+            {{Student_Data_d["Address1"]}}
+        </div>
+        
+        <div class="col-md-1">
+            {{Student_Data_d["Phone_Number"]}}
+        </div>
+        
+        <div class="col-md-1">
+            {{Student_Data_d["Student_Status_Name"]}}
+        </div>
+        
+        <div class="col-md-2">
+            {{Student_Data_d["Email"]}}
+        </div>
+        
+        <div class="col-md-1">
+        
+                <button _ngcontent-gdi-c11="" [hidden]="Student_Edit==false" 
+                class="btn btn-danger2" 
+                mattooltip="Edit Task" type="button" aria-describedby="cdk-describedby-message-1"
+                cdk-describedby-host=""
+                ng-reflect-position="above" ng-reflect-message="Edit Task"><span class="mat-button-wrapper">
+                    <i _ngcontent-gdi-c11="" class="material-icons" >View</i></span>
+                    <div class="mat-button-ripple mat-ripple" matripple="" ng-reflect-centered="false" 
+                    ng-reflect-disabled="false" ng-reflect-trigger="[object HTMLButtonElement]"></div>
+                    <div class="mat-button-focus-overlay"></div></button>   
+
+        </div>
+
+        
+       
+    </div>
+</div> 
+
+
+</div>
+    </div>
+    </div>    
+
+    <div class="row col-md-12">
+
+        <label class="entry-num">Entries : {{Total_Entries}}</label>
+    </div>            
+    <div class="row"  style="text-align: center;">
+        <div class="col-md-12 buttons-next-previous">
+            <button name="Previous" class="btn" (click)="previous_Click()" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+            <button name="Next" class="btn" (click)="Next_Click()" ><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+        </div>
+    </div>
+
+    </div>    
+    </div>
+    </div>
+    
+
+
+
+<div *ngIf="Instruction_Exam_View">
+    <div id="Exam_Instructions" *ngIf="Instruction_View"  >
+        <div  class="col-md-12" >
+            <div class="card agreeinstruction">
+                <h3 style="color: #ef071e;">Instructions for Exam</h3>
+                <ul style="list-style-type:square;padding-left: 8%;">
+                 <li> All mentioned times are Indian Standard Times You can check current Indian Time from-</li>  
+                 <li> You can check current Indian Time from- You can check current Indian Time from-</li>
+                  <li>http://www.worldtimeserver.com/current_time_in_IN.aspx Appear You can check current Indian Time from-</li>  
+                  <li> for exam between 12 pm to 1 pm. Exam Portal will closed at sharp 1 PM You can check current Indian Time from-</li> 
+                   <li> After closing of exam portal last few minutes You can check current Indian Time from-</li>
+                   <li>will be provided only for verification of submissions reading emails You can check current Indian Time from-</li>  
+                    <li>checking messages, applying for mark sheet and You can check current Indian Time from-</li>
+                   <li>confirming results etc. We will not be responsible for any lack of time and its losses</li>
+                    <li>Student must keep track of time You can check current Indian Time from-</li>
+                     <li>on own responsibility, as no clock or time notification is provided on our exam portal You can check current Indian Time from-</li>
+                      <li>Keep provided additional time strictly You can check current Indian Time from-</li>
+                   <li>reserved for verification, confirmations and problem resolution You can check current Indian Time from-</li>
+                   <li>Entire exam requires only half hour / 30 minutes, so do not appear late You can check current Indian Time from-</li>
+        
+                </ul>      
+            <div style="margin-top: 27%;">
+                <button name="Search" class="btn" style="float: right;background-color: red;"  (click)="close_write_exam()"> Close</button>
+                <button name="Search" class="btn mr-2" style="float: right;background-color: green;" (click)="If_Agree()"> Agree</button>  
+            </div>    
+            </div>
+            
+        </div>    
+        </div>
+
+
+    <div *ngIf="!Instruction_View && Instruction_Exam_View==true" >
+        <div class="col-md-12">
+            <div class="container-import" style="    margin-left: -3% !important;"> 
+            <!-- <div class="dt-card mt-2 instructions"> -->
+                <div class=" card horizontal ">
+                <div class="">                    
+                <div class="dt-card__header">
+                    <div class="dt-card__heading">
+                        <div class="font-section subject ">
+                            <div style="margin-bottom:6%;margin-top:2%;width: fit-content;font: 500 20px/32px Roboto, Helvetica Neue, sans-serif;color: #0db195;">{{subject_Name}}<br></div> 
+                          <div style="width: fit-content;color: #0d8bf1;">{{Semester_Name}}</div>  
+                        </div> 
+            <!-- <label class="font-section" style="float:right;"> -->
+                <div class="font-section Duration " >
+                <div style="margin-bottom:4%;margin-left: -16%;color: #0db195;">  Duration:{{duration}}&nbsp;min<br></div> 
+              <div style="margin-left:-16%;color: #0d8bf1;"><i class="fa fa-clock" style="margin-right:4%;" aria-hidden="true"></i>{{ellapsedTime}} / {{duration}}</div>  
+            </div>
+              <!-- </label> -->
+        <br>
+        <hr class="lineheader1">
+        <div class=" dt-card__body col-md-12" style=" margin-top: 6%;" >
+           
+                <label class="font-section mb-4" style="color:blue;font-weight:600">  {{Questions_.Question_Name}}</label><br>
+                <button style="width: 16px; height: 16px;" (click)="Answer_Option_Click('option1')" id="option1" name="option1" class="Option-section" ></button><label style="margin-left: 1%;margin-bottom: 1%;">{{Questions_.Option_1}}</label>
+                <br>
+                <button style="width: 16px; height: 16px;" (click)="Answer_Option_Click('option2')" id="c" name="option2" class="Option-section" ></button><label style="margin-left: 1%;margin-bottom: 1%;">{{Questions_.Option_2}}</label>
+                <br>
+                <button style="width: 16px; height: 16px;" (click)="Answer_Option_Click('option3')" id="option3" name="option3" class="Option-section" ></button><label style="margin-left: 1%;margin-bottom: 1%;">{{Questions_.Option_3}}</label>
+                <br>
+                <button style="width: 16px; height: 16px;" (click)="Answer_Option_Click('option4')" id="option4" name="option4" class="Option-section" ></button><label style="margin-left: 1%;margin-bottom: 1%;">{{Questions_.Option_4}}</label>
+                
+                
+                
+                
+                <!--  <input type="checkbox" id="option1" name="option1"    (click)="Answer_Option_Click('A')" value="option1" class="Option-section" ><label style="margin-left: 1%;">{{Questions_.Option_1}}</label>
+                <input type="checkbox" id="option2" name="option1"  (click)="Answer_Option_Click('B')" value="option2" class="Option-section" ><label style="margin-left: 1%;">{{Questions_.Option_2}}</label>
+                <br>
+                    <input type="checkbox"  id="option3" name="option1"  (click)="Answer_Option_Click('C')" value="option3" class="Option-section" ><label style="margin-left: 1%;">{{Questions_.Option_3}}</label>
+                    <input type="checkbox"  id="option4" name="option1"  (click)="Answer_Option_Click('D')" value="option4" class="Option-section" ><label style="margin-left: 1%;">{{Questions_.Option_4}}</label>     -->
+                                                                                 
+        </div>
+
+        <hr class="lineheader2">
+        <div class="row"  style="text-align: center;">
+            <div class="col-md-12 buttons-next-previous">                                           
+            <!-- <button mat-raised-button type="submit"  (click)="Next_Click()" *ngIf="next_view" class="btn btn-danger change-colour-button buttons-next-previous-edit-portion p-2" style="background: none;"><i class="fa fa-chevron-right" aria-hidden="true" style="color: #5f6368;"></i></button> -->
+            <button mat-raised-button type="submit" class="other-button-style next  mr-4"  (click)="Next_Click()" >
+               NEXT &raquo;
+                </button> 
+        </div>
+            </div>
+        <div class="col-md-12 mt-3" style="margin-left: 2% !important;margin-top: 2% !important;">
+            <button mat-raised-button type="submit" class="other-button-style quitbutton mr-4"  id="exam" (click)="Close_Exam()" >
+                QUIT
+                </button>
+            <button mat-raised-button type="submit" class="other-button-style btnflot pull-right mt-0" style="float:right;" *ngIf="submit_view" id="examsubmit" (click)="Submit_Exam()" >
+                SUBMITT
+                </button>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+     </div>
+</div>
+
+<div style="display: block;" *ngIf="1>2"  >
+<div id="mark" #mark> 
+
+    <table >
+        <tr>
+          <th>Column1</th>
+          <th>Column2</th>
+          <th>Column3</th>
+          <th>Column3</th>
+          <th>Column3</th>
+        </tr>
+        <tr *ngFor="let Mark_List of Mark_List_Data;" >          
+           
+            <td>
+                {{Mark_List["Subject_Name"]}}
+            </td>
+            <td>
+                {{Mark_List["Minimum_Mark"]}}
+            </td>
+            <td>
+                {{Mark_List["Maximum_Mark"]}}
+            </td>
+            <td>
+                {{Mark_List["Mark_Obtained"]}}
+            </td>
+           
+            <td>
+                {{Mark_List["Exam_Status_Name"]}}
+            </td>
+        
+        </tr>
+      </table>
+
+
+
+<!-- <table class="table table-hover colour-change-title-searchsection-table heading-styles-as-gmail-format" >
+    <thead>
+    <th>
+    Subject Name
+    </th>
+    <th>
+    Minimum Mark
+    </th> 
+    <th>
+    Maximum Mark
+        </th>
+        <th>
+    Obtained Mark
+        </th>
+         
+    <th>Status</th>
+    <th></th>
+    </thead>
+    <tbody *ngFor="let Mark_List of Mark_List_Data;" >          
+        <tr>
+        <td>
+            {{Mark_List["Subject_Name"]}}
+        </td>
+        <td>
+            {{Mark_List["Minimum_Mark"]}}
+        </td>
+        <td>
+            {{Mark_List["Maximum_Mark"]}}
+        </td>
+        <td>
+            {{Mark_List["Mark_Obtained"]}}
+        </td>
+       
+        <td>
+            {{Mark_List["Exam_Status_Name"]}}
+        </td>
+    
+    </tr>
+    </tbody>
+    
+    </table> -->
+</div>
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+.chip--active{
+  background-color: #ffc107;
+  color: #333;
+  /* box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.10); */
+   padding: 0 12px;
+    border-radius: 100px;
+    display: inline-flex;
+    margin: 5px 2px;
+    color: #666;
+    font-weight: 600;
+    align-items: center;
+    height: 32px;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 14px;
+    border: none;
+}
+.chip {
+    padding: 0 12px;
+    background-color: #dfdddd;
+    border-radius: 100px;
+    display: inline-flex;
+    margin: 5px 2px;
+    color: #666;
+    font-weight: 600;
+    align-items: center;
+    height: 32px;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 14px;
+    border: none;
+}
+#student-login .form-control{
+    padding: 20px;
+}
+.upload{
+    float: right;
+    margin-top: -13%;
+    margin-right: -17%;
+    margin-right: 0%;
+    margin-top: -62px;
+}
+
+

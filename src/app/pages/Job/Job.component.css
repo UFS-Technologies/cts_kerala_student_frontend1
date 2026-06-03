@@ -1,0 +1,74 @@
+.chip--active{
+  background-color: #ffc107;
+  color: #333;
+  /* box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.10); */
+   padding: 0 12px;
+    border-radius: 100px;
+    display: inline-flex;
+    margin: 5px 2px;
+    color: #666;
+    font-weight: 600;
+    align-items: center;
+    height: 32px;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 14px;
+    border: none;
+}
+.chip {
+    padding: 0 12px;
+    background-color: #dfdddd;
+    border-radius: 100px;
+    display: inline-flex;
+    margin: 5px 2px;
+    color: #666;
+    font-weight: 600;
+    align-items: center;
+    height: 32px;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 14px;
+    border: none;
+}
+#student-login .form-control{
+    padding: 20px;
+}
+#Candidate-login .form-control{
+    padding: 20px;
+}
+
+.Upload-button-style{
+    color: #fff;
+    border-radius: 5px;
+    background-color:   #5d6071;
+    border-color:   #5d6071;
+    box-shadow:none !important;
+    /* box-shadow: 0 2px 2px 0 rgb(153 153 153 / 0%), 0 3px 1px -2px rgb(153 153 153 / 0%), 0 1px 5px 0 rgb(153 153 153 / 0%); */
+    position: relative;
+    padding: 9px 18px 7px 18px;
+    margin: 0.3125rem 1px;
+    min-width: auto;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    letter-spacing: 0;
+    cursor: pointer;     
+    border: 0;
+    outline: 0; 
+    float: right;
+    margin-top: -19%;    
+   /* transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1); */
+    /* will-change: box-shadow, transform; */
+    }
+   .txt-color
+   {
+       color: #ffc107;
+   }
+   .containercard{
+    /* max-width: 1673px; */
+    margin-left: 1%;
+    margin-right: 1%;
+   }

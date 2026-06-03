@@ -1,0 +1,742 @@
+
+ <section id="intro-wrap" class="intro-ten-Wrap bg-primary text-left text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 intro-ten-LeftSection pb-3">
+                    <h1 class="font-weight-bold text-white text-42 mb-3 t-shadow">More Effecient CRM
+                        Software for you.</h1>
+                    <p class="text-20 mb-4">Meet Dexam Highly customizable Pure VueJs + Bootstrap 4
+                        Landing
+                        Pages. </p>
+                    <div class="mb-5 lead">
+                        <ul class="list-inline">
+                            <li class="mb-3"><i class="eva eva-checkmark-outline mr-2 text-warning"></i>Minimal,
+                                Intuitive and Fully Responsive Design
+                            </li>
+                            <li class="mb-3"><i class="eva eva-checkmark-outline mr-2 text-warning"></i>
+                                Authentication Pages
+                            </li>
+                            <li class="mb-3"><i class="eva eva-checkmark-outline mr-2 text-warning"></i>
+                                Super Flexible And Customizable</li>
+                        </ul>
+                    </div>
+                    <div class="intro-ten-Buttons">
+                        <a name="" id="" href="/sessions/signin" class="btn half-button btn-outline-white btn-lg pl-5 pr-5 pb-2 mr-2 mb-4 text-uppercase" href="#" role="button">
+                            Sign in
+                        </a>
+                        <a id="" href="/sessions/signup" class="btn half-button btn-warning btn-lg pl-5 pr-5 pb-2 mb-4 text-uppercase" href="#" role="button">
+                            Sign up
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 intro-ten-RightSection d-flex align-items-center">
+                    <div class="intro-ten-ProductImage">
+                        <img src="../tvm_user_assets/images/landing/svg/v10-header4.svg" class="img-responsive" alt="img-intro">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="overlay">
+        </div>
+    </section>
+      <section class="search-area">
+        <div class="container">
+            <div data-aos="fade-down" class="search-box">
+                <!-- <div class="d-xl-flex">
+                    <h1 class="mb-3">Search for Courses</h1>
+                    <div class="ml-auto d-flex flex-wrap align-items-center">
+                        <a href="#" data-toggle="modal" data-target="#student-login" id="Login_Id"(click)="Login_Student()"
+                        class="btn half-button btn-outline-white btn-lg pl-3 pr-3 mr-3 font-weight-bold mb-3">Student Login</a>
+                        <a href="#" data-toggle="modal" data-target="#agent-login " (click)="Login_Student()"class="btn half-button btn-warning btn-lg pl-3 pr-3 pb-2 mr-3 font-weight-bold mb-3">Agent Login</a>
+                       
+                        <a href="#" data-toggle="modal" data-target="#help-lg" class="help ml-auto mb-3">Help</a>
+                    </div>
+                </div> -->
+                <!-- <div class="d-flex flex-wrap select-area mb-2 align-items-center">
+                    <div class="d-flex align-items-center pl-0 pr-sm-3 mt-2 mb-2">
+                        <label class="pr-3">At</label>
+                        <select [(ngModel)]="Country_" name="Country_" class="form-control">
+                            <option *ngFor="let Country_1 of Country_Data "[ngValue]="Country_1">{{Country_1.Country_Name}}</option>
+                         </select>
+                    </div>
+                    <div class="d-flex align-items-center pl-0 pr-sm-3 mt-2 mb-2">
+                        <label class="pr-3">In</label>
+                        <select class="form-control" [(ngModel)]="Level_Detail_" name="Level_Detail_">
+                            <option *ngFor="let Level_1 of Level_Detail_Data " [ngValue]="Level_1">{{Level_1.Level_Detail_Name}}</option>
+                        </select>
+                    </div>
+                    <div class="d-flex align-items-center pl-0 pr-sm-3 mt-2 mb-2">
+                        <label class="pr-3">For</label>
+                        <select class="form-control" [(ngModel)]="Intake_" name="Intake_">
+                        <option *ngFor="let Intake_1 of Intake_Data " [ngValue]="Intake_1">{{Intake_1.Intake_Name}}</option>
+                        </select>
+                    </div>
+                </div> -->
+                <!-- <form class="form-inline relative search-field">
+                    <div class="form-group w-100">
+
+
+                        <input type="text" [(ngModel)]="Course_Name" [matAutocomplete]="auto2" name="Course_Name" 
+                        class="form-control dexam-input" placeholder="Search Your Course Here..." required=""  (input)="Public_Search_Course_Typeahead()" (click)="Public_Search_Course_Typeahead()">
+                        <mat-autocomplete #auto2="matAutocomplete" [displayWith]="display_Course">
+                            <mat-option *ngIf="isLoading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+                            <ng-container *ngIf="!isLoading">
+                            <mat-option *ngFor="let Course1 of Course_Data" [value]="Course1">
+                            <span>{{Course1.Course_Name}}</span>
+                            </mat-option>
+                            </ng-container>
+                            </mat-autocomplete>
+                       
+                        <button type="submit" class="btn btn-warning h-67 text-19" (click)="Public_Search_Course_Click()">
+                        Search
+                    </button>
+                    </div>
+
+                </form> -->
+
+
+                    <!-- <div class="col-md-3">
+                        <label class="col-md-3 label-to-crect-all-names-to-divs name-label-margin-down-employer-details-name">Search</label>
+                        <input type="text" [matAutocomplete]="auto2" [(ngModel)]="Search_Course" name="Search_Course"  placeholder="Search Your Course Here..."
+                        (click)="Public_Search_Course_Typeahead($event)" (input)="Public_Search_Course_Typeahead($event)" class="col-md-8 input-allighn-typer-head-all-divs"/>
+                        <mat-autocomplete #auto2="matAutocomplete" [displayWith]="display_Course">
+                        <mat-option *ngIf="isLoading"><mat-spinner diameter="500"></mat-spinner></mat-option>
+                        <ng-container *ngIf="!isLoading">
+                        <mat-option *ngFor="let Course1 of Course_Data" [value]="Course1">
+                        <span>{{Course1.Course_Name}}</span>
+                        </mat-option>
+                        </ng-container>
+                        </mat-autocomplete>
+                    </div> -->
+
+
+              <!-- <div  class="chips-cvr collapse" id="collapseExample" class="">
+                    <h3 class="pt-3" >Branch</h3>
+                    <div class="chips__filter mb-4">
+                        <div *ngFor="let Subject_1 of Subject_Data ;  let i = index" Value="Subject_1"  name =Subject_1.Subject_Id
+                        [ngClass]="{'chip--active' : Subject_1.Selection == true,'chip' : Subject_1.Selection == false }" (click)="Change_Selection_Branch(i)" >
+                            <span  class="icon icon--leadind chip--check" style="margin-right: 5px;">
+                                <i class="fas fa-check-circle"></i>
+                            </span>
+                            <span>{{Subject_1.Subject_Name}}</span>
+                        </div>
+                    </div>
+
+                <h3>Duration</h3>
+                <div class="chips__filter mb-4">
+                        <div *ngFor="let Duration_1 of Duration_Data; let i=index " Value="Duration_1"  name =Duration_1.Duration_Id
+                        [ngClass]="{'chip--active' : Duration_1.Selection == true,'chip' : Duration_1.Selection == false }"(click)="Change_Duration_Branch(i)"  >
+                            <span  class="icon icon--leadind chip--check" style="margin-right: 5px;">
+                                <i class="fas fa-check-circle"></i>
+                            </span>
+                            <span>{{Duration_1.Duration_Name}}</span>
+                        </div>
+               </div>
+                </div> -->
+
+
+
+                <div>
+                    <div id="new-account">
+                        <div class="row col-md-12 container form-section" >                        
+                        <div class="col-md-6 container2">
+                            <form>
+                                <label style="padding-left: 15%;"><h3><b>Owner Details</b></h3></label> 
+                                <input type="text"   name="Agent_.Agent_Name"   [(ngModel)]="Agent_.Agent_Name"    placeholder="Owner Name * " style="color:#ef071e; vertical-align: -webkit-baseline-middle;"  class="form-control mb-4" />
+                                <input type="text"   name="Agent_.Address1"     [(ngModel)]="Agent_.Address1"      placeholder="Address1"  class="form-control mb-4" />
+                                <input type="text"   name="Agent_.Address2"     [(ngModel)]="Agent_.Address2"      placeholder="Address2"  class="form-control mb-4" />
+                                <input type="text"   name="Agent_.Address3"     [(ngModel)]="Agent_.Address3"      placeholder="Address3"  class="form-control mb-4" />
+                                <input type="text"   name="Agent_.Password"     [(ngModel)]="Agent_.Password"      placeholder="Password *"  class="form-control mb-4" />
+                                <input type="text"   name="Agent_.Comm_Pincode" [(ngModel)]="Agent_.Comm_Pincode"  placeholder="Pincode"   class="form-control mb-4" />
+                                <input type="text"   name="Agent_.Photo "       [(ngModel)]="Agent_.Photo"         placeholder="Photo"     class="form-control mb-4" />
+                                <button class="btn half-button btn-warning  font-weight-bold upload"   type="button"
+                                (click)="fileInput4.click()">Upload
+                                <input #fileInput4 type="file"   id="btnUpload"  value="Upload" name="Photo"  
+                                [(ngModel)]="file" (change)="File_Change($event)" style="display:none;"  class="upload"  /> 
+                                </button>
+                               
+                            </form>
+                        </div>     
+                               
+                        <div class="col-md-6 container2">
+                               
+                            <form>
+                                <label style="padding-left: 15%;"><h3><b>SKP Address</b></h3></label>   
+                                <input type="text"   name="Agent_.Center_Name"   [(ngModel)]="Agent_.Center_Name"   placeholder="Center Name *"         class="form-control mb-4" />
+                                <!-- <input type="text"   name="Agent_.Center_Code"   [(ngModel)]="Agent_.Center_Code"   placeholder="Center Code"        style="margin-left: 15%!important;"     class="form-control mb-4" /> -->
+                                <input type="text"   name="Comm_Address1"        [(ngModel)]="Agent_.Comm_Address1" placeholder="House/Flat No/"       class="form-control mb-4">
+                                <input type="text"   name="Agent_.Comm_Address2" [(ngModel)]="Agent_.Comm_Address2" placeholder="Location"             class="form-control mb-4">
+                                <input type="text"   name="Agent_.Comm_Address3" [(ngModel)]="Agent_.Comm_Address3" placeholder="Post Office"          class="form-control mb-4" />
+                                <input type="text"   name="Agent_.Comm_Address4" [(ngModel)]="Agent_.Comm_Address4" placeholder="District"             class="form-control mb-4" />
+                                <input type="tel"    name="Mobile"               [(ngModel)]="Agent_.Mobile"        placeholder="Mobile *"             class="form-control mb-4" >
+                                <input type="email"  name="Agent_.Email"         [(ngModel)]="Agent_.Email"         placeholder="Email *"               class="form-control mb-4">
+                      
+                            </form>
+                        </div>
+                        <!-- <div class="col-md-4 container2">
+                            <label><h3><b>SKP Affiliation Details</b></h3></label>      
+                            <form>
+                               
+                                <input type="date" name="Date" placeholder="Date" style="margin-left: 7%!important;" class="form-control mb-4">
+                                <input type="text" name="Bank" placeholder="Bank" style="margin-left: 7%!important;" class="form-control mb-4" />
+                              
+                            </form>
+                        </div> -->
+
+                        <!-- <div class="col-md-4 container2">
+                                
+                            <form>
+                          
+                               <input type="text" name="Amount" placeholder="Amount"  style="margin-left: 7%!important;margin-top: 17%!important;"class="form-control mb-4">
+                               <input type="text" name="Branch" placeholder="Branch" style="margin-left: 7%!important;"   class="form-control mb-4" >                           
+                            
+                            </form>
+                        </div> -->
+                        <!-- <div class="col-md-4 container2">
+                                
+                            <form>
+                                <input type="text" name="Registartion No" placeholder="Registartion No" style="margin-left: 7%!important;margin-top: 17%!important;" class="form-control mb-4" />
+                                <input type="date" name="Approvel date" placeholder="Approvel date" style="margin-left: 7%!important;" class="form-control mb-4">
+                            </form>
+                        </div> -->
+                        <div class="col-md-12 container2">
+                            <!-- <a href="#" data-toggle="modal" data-target="#agent-login "  style="float: right; margin-right: -7%;" class="btn half-button btn-warning btn-lg pl-3 pr-3 pb-2 font-weight-bold mb-3">Agent Login</a> -->
+                            <button class="btn half-button btn-warning btn-lg pl-3 pr-3 pb-2 mr-0 font-weight-bold mb-1" style="float: right;" [hidden]="Agent_Save==false"id="Save_Button" (click)="Save_Agent()" >Submit</button>
+                            <button  mat-raised-button type="submit" class="btn half-button btn-warning btn-lg pl-3 pr-3 pb-2 mr-3 font-weight-bold mb-1" style="float: right;"
+                            (click)="Close_Click()">Close</button>
+                        </div>
+                        <div>
+                          </div>
+                    </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+<!-- <div class="modal fade-scale" id="help-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content newsletter">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+            <div class="modal-body p-3 p-lg-4">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <h4 class="mb-3">Need help searching for courses and programmes?</h4>
+                        <strong>You can find courses and programmes that interest you by following several easy
+                            steps:</strong>
+                        <div class="list">
+                            <span class="violet">01</span> - Enter a word or words in the box and click "Search"<br>
+                            <span class="violet">02</span> - Look through your search results and click on "More
+                            information" for, you guessed it, more information about each course and programme!<br>
+                            <span class="violet">03</span> - Click the "Add" button next to the courses you would like
+                            to apply for - they will appear in your "My selection" box<br>
+                            <span class="violet">04</span> - When you're finished, simply click on "To application" to
+                            continue with your application.
+                            Cant find what you are looking for?
+                            You can search by entering parts of a word or a whole word - you will see a list of
+                            suggestions appear that might be what you're looking for.(But selecting that particular
+                            suggestion will result in that course details only). You can also combine
+                        </div>
+                        <span class="text-lg">several search words, <strong class="violet">or use the option of
+                                department (stream / subject) search alone for more & wide number of
+                                options</strong></span>
+                    </div>
+                    <div class="col-12 mt-4 mb-3">
+                        <div class="box">
+                            <h5 class="inline-block">Advanced search</h5> is useful if you would like a list of results
+                            that are more specific and fine-tuned to what you'd like to study, and how you'd like to
+                            study. You can choose to see only courses and programmes that fit certain criteria, like
+                            level and instructional time, or choose to only search for courses and programmes that are
+                            currently open for application. Begin by entering a search word or words in the green box.
+                            Then click on "Advanced Search" and select the different items that are important to you.
+                            When you click "Search", the results list will match the criteria you have specified. You
+                            can also limit your search to specific universities or specific durations, Intakes, IELTS
+                            requirements & internship availabilities by using this optional advanced search option.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <section class="search-result">
+        <div class="container">
+            <div class="row">
+                <div data-aos="fade-right" class="col-md-8 pr-xl-5 mt-3 ">
+                    <div class="left-side">
+                        <div class="head d-flex align-items-center">
+                           
+                            <label class="pr-3 pl-3" style="color: #fff;font-weight: 600;font-size: 20px;">IELTS</label>
+                            <select class="form-control" [(ngModel)]="Ielts_"id="Week_Day_" name="Ielts_1" #Ielts_1 (change)='onIeltsSelected(Ielts_1.value)'>
+                                <option *ngFor="let Ielts_1 of Ielts_Data " name=Ielts_1.Ielts_Name [ngValue]="Ielts_1">{{Ielts_1.Ielts_Name}}</option>
+                            </select>
+                            <a href="#" data-toggle="modal" data-target="#help-sm" class="help ml-auto">Help</a>
+                        </div>
+                        <div class="scrollbar">
+                            <ul class="results overflow">
+                                    <li class="d-lg-flex flex-wrap align-items-center" *ngFor="let Course1 of Course_Data;  let i = index">
+                                            <div  class="data col-lg-9 pl-0" >
+                                                <h5>{{Course1.Course_Name}}</h5>
+                                                <div class="d-flex">
+                                                    <span class="campus mr-4">{{Course1.University_Name}}</span>
+                                                    <span class="country">{{Course1.Country_Name}}</span>
+                                                </div>
+                                            </div>
+                                                <div class="col-lg-3 pr-0 pl-0">
+                                                    <button class="btn btn-primary mt-3"(click)="Addto_My_Selection(Course1.Course_Id,Course1.Course_Name)"><span>Add to My <strong>Selection</strong></span></button>
+                                                </div>
+                                                <div class="col-6 pl-0"   >
+                                                    <a class="more-info mt-2"(click)="Get_More_Information(Course1.Course_Id,i)" >More Information</a>
+                                                    <div [hidden]="Course1.More_Information==false" >
+                                                        <strong>Tution Fee</strong> {{Course1.Application_Fees}}<br>
+                                                        <strong>Level</strong> :{{Course1.Level_Detail_Name}}<br>
+                                                        <strong>More Details</strong> : {{Course1.Details}}<br>
+                                                        <strong>Duration</strong> : {{Course1.Duration_Name}}<br>
+                                                        <strong>Department</strong> : {{Course1.Subject_Name}}<br>
+                                                        <strong>IELTS Score needed</strong> :  {{Course1.Ielts_Minimum_Score}}<br>
+                                                        <strong>Intake</strong> :  {{Course1.Intake_Name}}
+                                                        <a target="blank" class="more-info-in mt-2">For more details click this link</a>
+                                                    </div>
+                                                </div>
+                             </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slick_control_wrap text-center mt-3">
+                        <button data-aos="fade-right" type="button"  (click)="previous_Click()"
+                            class="ngu_control_button half-button services-arrow-left leftRs btn btn-circle btn-white btn-shadow">
+                            <i class="fas fa-chevron-left" style="color: #fff;"></i></button>
+                        <button data-aos="fade-left" type="button"   (click)="Next_Click()"
+                            class="ngu_control_button half-button services-arrow-right rightRs btn btn-circle btn-white btn-shadow">
+                            <i class="fas fa-chevron-right" style="color: #fff;"></i></button>
+                    </div>
+                  
+                </div>
+                <div data-aos="fade-left" class="col-md-4 pl-xl-0 mt-3">
+                    <div class="my-selection" >
+                        <h4>My Selection</h4>
+                        <ul class="selection-box">
+                            <li *ngFor="let Course_Selection_ of Course_Selection_Data;  let i = index"> 
+                                {{Course_Selection_.Course_Name}}
+                                <a class="close-x"   (click)="Delete_Course_Selection(Course_Selection_,i)"></a>
+                            </li> </ul>
+                        <div class="btm-sec">
+                            <button class="btn btn-info" (click)="Apply_Now_Click()">Apply Now</button>
+                            <div class="text-lg mt-3 text-center">You can apply up to 5 courses.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade-scale" id="help-sm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog lg" role="document">
+            <div class="modal-content newsletter">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+                <div class="modal-body p-3 p-lg-4">
+                    <h4 class="mb-3">How to apply for these courses in search results?</h4>
+                    <p>You can click the Course name or college name to get <strong>detailed information</strong> on it.<br>
+                        Click the <strong>"Add to my selection"</strong> button next to the courses you would like to apply
+                        for - they will appear in your <strong>"My selection"</strong> box<br>
+                        When you're finished, simply click on <strong>"Apply now"</strong> to continue with your
+                        application.<br>
+                        Note: You can fine tune this search result course list again by using <strong>advanced
+                            search</strong> , <strong>sort by</strong> or by <strong>modifying< the search</strong> criteria
+                                according to your choice.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade-scale" id="student-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content newsletter">
+                <button type="button" class="close" data-dismiss="modal" id="Student_Close" aria-label="Close">X</button>
+                <div  *ngIf="login_View1" class="modal-body p-3 p-lg-4">
+                    <div *ngIf="login_View" >
+                    <div id="login">
+                        <h4 class="mb-3 pr-md-5 pl-md-5"  (click)="Tab_click(1)">Login In</h4>
+                        <form class="pr-md-5 pl-md-5 mt-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email Address </label>
+                                <input  name="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    placeholder="Email Address"  [(ngModel)]="Email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Password </label>
+                                <input name="Password" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    placeholder="Password"  [(ngModel)]="Password">
+                            </div>
+                            <div class="d-flex mt-4">
+                                <a  (click)="Tab_click(2)" class="link">Forgot Password</a>
+                                <span class="ml-auto">New User <a class="link" (click)="Tab_click(3)">Registartion</a></span>
+                            </div>
+                            <div class="error-red mt-2 font-weight-bold">
+                                {{Messege}}
+                            </div>
+                            <div class="form-group text-center mt-4">
+                                <button class="btn half-button btn-warning btn-lg pl-3 pr-3 pb-2 mr-3 font-weight-bold mb-3" (click)="Candidate_Login_Click()">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                    <div *ngIf="forgot_View" >
+                    <div id="forgot">
+                        <h4 class="mb-3 pr-md-5 pl-md-5"   (click)="Tab_click(2)">Forgot Password</h4>
+                        <form class="pr-md-5 pl-md-5 mt-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email Address </label>
+                                <input  name="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    placeholder="Email Address"  [(ngModel)]="StudentEmail_Forgot">
+                            </div>
+                            <div class="form-group text-center mt-4">
+                                <button class="btn half-button btn-warning btn-lg pl-3 pr-3 pb-2 mr-3 font-weight-bold mb-3" (click)="Forgot_Password_Student()">Send</button>
+                                <button mat-raised-button type="submit" class="btn half-button btn-warning btn-lg pl-3 pr-3 pb-2 mr-3 font-weight-bold mb-3" 
+                                (click)="Close_Click()">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+
+                  
+
+                    
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!--Agent Login-->
+    
+    <!-- <div class="modal fade-scale" id="agent-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content newsletter">
+                <button type="button" class="close" data-dismiss="modal" id="Agent_Close" aria-label="Close">X</button>
+                <div  *ngIf="login_View1" class="modal-body p-3 p-lg-4">
+                    <div *ngIf="login_View" >
+                    <div id="login">
+                        <h4 class="mb-3 pr-md-5 pl-md-5"  (click)="Tab_click(1)">Login In</h4>
+                        <form class="pr-md-5 pl-md-5 mt-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email Address </label>
+                                <input  name="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    placeholder="Email Address"  [(ngModel)]="Agent_Email">
+                            </div>
+                   
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Password </label>
+                                <input name="Password" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    placeholder="Password"  [(ngModel)]="Agent_Password">
+                            </div>
+                           
+                            <div class="d-flex mt-4">
+                                <a  (click)="Tab_click(2)" class="link">Forgot Password</a>
+                            </div>
+                        <div class="error-red mt-2 font-weight-bold">
+                            {{Messege}}
+                        </div>
+                            <div class="form-group text-center mt-4">
+                                <button class="btn half-button btn-warning btn-lg pl-3 pr-3 pb-2 mr-3 font-weight-bold mb-3" (click)="Agent_Login_Click()">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                    <div *ngIf="forgot_View" >
+                    <div id="forgot">
+                        <h4 class="mb-3 pr-md-5 pl-md-5"   (click)="Tab_click(2)">Forgot Password</h4>
+                        <form class="pr-md-5 pl-md-5 mt-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email Address </label>
+                                <input  name="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    placeholder="Email Address"  [(ngModel)]="AgentEmail_Forgot">
+                            </div>
+                            <div class="form-group text-center mt-4">
+                                <button class="btn half-button btn-warning btn-lg pl-3 pr-3 pb-2 mr-3 font-weight-bold mb-3" (click)="Forgot_Password_Agent()">Send</button>
+                                <button mat-raised-button type="submit" class="btn half-button btn-warning btn-lg pl-3 pr-3 pb-2 mr-3 font-weight-bold mb-3" 
+                                (click)="Close_Click()">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                    </div>                              
+                </div>
+            </div>
+        </div>
+    </div> -->
+<!---->
+    <!-- <section id="features-wrap" class="features_wrap p-t-b-80" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 section-header mb-5">
+                    <h2 class="font-weight-bold">Our Exciting Features</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat ea quam
+                        laborum,
+                        ducimus, laboriosam sint dolorum aspernatur libero.</p>
+                </div>
+                <div class="col-md-12 col-lg-6 col-sm-12 mb-4 mb-lg-0">
+                    <div class="row">
+                        <div data-aos="fade-right" class="col-md-6 col-sm-6 mb-4">
+                            <div class="card">
+                                <div class="card-body pt-4 pb-4 text-center">
+                                    <i class="eva eva-clock-outline text-36"></i>
+                                    <h4 class="card-title pt-2 font-weight-medium">Time Tracking</h4>
+                                    <p>Lorem Ipsum is simply dummy text of the printing .</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-aos="fade-left" class="col-md-6 col-sm-6 mb-4">
+                            <div class="card">
+                                <div class="card-body pt-4 pb-4 text-center">
+                                    <i class="eva eva-shopping-bag-outline text-36"></i>
+                                    <h4 class="card-title pt-2 font-weight-medium">Sales Report</h4>
+                                    <p>Lorem Ipsum is simply dummy text of the printing .</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-aos="fade-up" class="col-md-6 col-sm-6 mb-4 mb-lg-0 mb-md-0">
+                            <div class="card">
+                                <div class="card-body pt-4 pb-4 text-center">
+                                    <i class="eva eva-lock-outline text-36"></i>
+                                    <h4 class="card-title pt-2 font-weight-medium">Data Safety</h4>
+                                    <p>Lorem Ipsum is simply dummy text of the printing .</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-aos="fade-up" class="col-md-6 col-sm-6 mb-4 mb-lg-0 mb-md-0">
+                            <div class="card">
+                                <div class="card-body pt-4 pb-4 text-center">
+                                    <i class="eva eva-people-outline text-36"></i>
+                                    <h4 class="card-title pt-2 font-weight-medium">Contracts</h4>
+                                    <p>Lorem Ipsum is simply dummy text of the printing .</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-lg-5 offset-lg-1 d-flex align-items-center">
+                    <img data-aos="fade-left" src="../tvm_user_assets/images/landing/svg/features2.svg" class="img-responsive w-100" alt="">
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- <section id="services-wrap" class="services-caurosel-wrap light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 section-header mb-5">
+                    <h2 class="font-weight-bold">Our Services</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat ea quam
+                        laborum,
+                        ducimus, laboriosam sint dolorum aspernatur libero.</p>
+                </div>
+                <div class="col-md-12">
+                    <div data-aos="fade-up" class="slick-services-carousel-wrap">
+                        <ngx-slick-carousel   [config]="slideConfig" 
+                        class="carousel" 
+                        
+                  #slickModal="slick-carousel" 
+                  >
+                        <div ngxSlickItem  class="service-wrap">
+                            <div class="card o-hidden mb-4">
+                                <div class="card-header p-0 text-left">
+                                    <img class="img-responsive" src="../tvm_user_assets/images/landing/services/service1.svg">
+                                </div>
+                                <div class="card-body text-left">
+
+                                    <h3 class="card-title text-capitalize font-weight-bold">Service one
+                                    </h3>
+                                    <p class="card-text">Adipisci quas repellat sed. Quasi quaerat aut
+                                        nam
+                                        possimus vitae dignissimos, sapiente est atque tenetur</p>
+                                 </div>
+                                <div class="card-footer pl-3 text-left">
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-link-2-outline"></span>
+                                    </a>
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-share"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div ngxSlickItem  class="service-wrap">
+                            <div class="card o-hidden mb-4">
+                                <div class="card-header p-0 text-left">
+                                    <img class="img-responsive" src="../tvm_user_assets/images/landing/services/services14.svg">
+                                </div>
+                                <div class="card-body text-left">
+                                    <h3 class="card-title text-capitalize font-weight-bold">Service two
+                                    </h3>
+                                    <p class="card-text">Adipisci quas repellat sed. Quasi quaerat aut
+                                        nam
+                                        possimus vitae dignissimos, sapiente est atque tenetur</p>
+                                 </div>
+                                <div class="card-footer pl-3 text-left">
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-link-2-outline"></span>
+                                    </a>
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-share"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div ngxSlickItem  class="service-wrap">
+                            <div class="card o-hidden mb-4">
+                                <div class="card-header p-0 text-left">
+                                    <img class="img-responsive" src="../tvm_user_assets/images/landing/services/services15.svg">
+                                </div>
+                                <div class="card-body text-left">
+                                    <h3 class="card-title text-capitalize font-weight-bold">Service
+                                        three
+                                    </h3>
+                                    <p class="card-text">Adipisci quas repellat sed. Quasi quaerat aut
+                                        nam
+                                        possimus vitae dignissimos, sapiente est atque tenetur</p>
+                                </div>
+                                <div class="card-footer pl-3 text-left">
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-link-2-outline"></span>
+                                    </a>
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-share"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div ngxSlickItem  class="service-wrap">
+                            <div class="card o-hidden mb-4">
+                                <div class="card-header p-0 text-left">
+                                    <img class="img-responsive" src="../tvm_user_assets/images/landing/services/services16.svg">
+                                </div>
+                                <div class="card-body text-left">
+                                    <h3 class="card-title text-capitalize font-weight-bold">Service four
+                                    </h3>
+                                    <p class="card-text">Adipisci quas repellat sed. Quasi quaerat aut
+                                        nam
+                                        possimus vitae dignissimos, sapiente est atque tenetur</p>
+                               </div>
+                                <div class="card-footer pl-3 text-left">
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-link-2-outline"></span>
+                                    </a>
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-share"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div ngxSlickItem  class="service-wrap">
+                            <div class="card o-hidden mb-4">
+                                <div class="card-header p-0 text-left">
+                                    <img class="img-responsive" src="../tvm_user_assets/images/landing/services/services9.svg">
+                                </div>
+                                <div class="card-body text-left">
+                                    <h3 class="card-title text-capitalize font-weight-bold">Service five
+                                    </h3>
+                                    <p class="card-text">Adipisci quas repellat sed. Quasi quaerat aut
+                                        nam
+                                        possimus vitae dignissimos, sapiente est atque tenetur</p>
+                                 </div>
+                                <div class="card-footer pl-3 text-left">
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-link-2-outline"></span>
+                                    </a>
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-share"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div ngxSlickItem  class="service-wrap">
+                            <div class="card o-hidden mb-4">
+                                <div class="card-header p-0 text-left">
+                                    <img class="img-responsive" src="../tvm_user_assets/images/landing/services/services6.svg">
+                                </div>
+                                <div class="card-body text-left">
+
+                                    <h3 class="card-title text-capitalize font-weight-bold">Service six
+                                    </h3>
+                                    <p class="card-text">Adipisci quas repellat sed. Quasi quaerat aut
+                                        nam
+                                        possimus vitae dignissimos, sapiente est atque tenetur</p>
+                                </div>
+                                <div class="card-footer pl-3 text-left">
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-link-2-outline"></span>
+                                    </a>
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-share"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div ngxSlickItem  class="service-wrap">
+                            <div class="card o-hidden mb-4">
+                                <div class="card-header p-0 text-left">
+                                    <img class="img-responsive" src="../tvm_user_assets/images/landing/services/services10.svg">
+                                </div>
+                                <div class="card-body text-left">
+                                    <h3 class="card-title text-capitalize font-weight-bold">Service
+                                        seven
+                                    </h3>
+                                    <p class="card-text">Adipisci quas repellat sed. Quasi quaerat aut
+                                        nam
+                                        possimus vitae dignissimos, sapiente est atque tenetur</p>
+                                </div>
+                                <div class="card-footer pl-3 text-left">
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-link-2-outline"></span>
+                                    </a>
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-share"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div ngxSlickItem  class="service-wrap">
+                            <div class="card o-hidden mb-4">
+                                <div class="card-header p-0 text-left">
+                                    <img class="img-responsive" src="../tvm_user_assets/images/landing/services/services5.svg">
+                                </div>
+                                <div class="card-body text-left">
+                                    <h3 class="card-title text-capitalize font-weight-bold">Service
+                                        eight
+                                    </h3>
+                                    <p class="card-text">Adipisci quas repellat sed. Quasi quaerat aut
+                                        nam
+                                        possimus vitae dignissimos, sapiente est atque tenetur</p>
+                                </div>
+                                <div class="card-footer pl-3 text-left">
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-link-2-outline"></span>
+                                    </a>
+                                    <a href="#" class="btn btn-lg p-1 mr-1 text-dark">
+                                        <span class="eva eva-share"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        </ngx-slick-carousel>
+                    </div>
+                    <div class="slick_control_wrap text-center">
+                        <button data-aos="fade-right" type="button" class="ngu_control_button half-button services-arrow-left leftRs btn btn-circle btn-white btn-shadow">
+                            <i class="fas fa-chevron-left" style="color:#fff"></i>
+                        </button>
+                        <button data-aos="fade-left" type="button" class="ngu_control_button half-button services-arrow-right rightRs btn btn-circle btn-white btn-shadow">
+                            <i class="fas fa-chevron-left" style="color:#fff"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    
+    
