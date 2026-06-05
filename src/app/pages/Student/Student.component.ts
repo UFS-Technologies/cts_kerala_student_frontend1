@@ -118,6 +118,10 @@ Total_Entries: number;
 Profile_View:boolean=true;
 Course_View:boolean=false;
 Exam_Tab_View:boolean=false;
+Exam_Details_Data: any[];
+Exam_Details_Hidden: boolean = false;
+Selected_Exam: any;
+Exam_Data: any[] = [];
 application_View:boolean=false;
 document_View:boolean=false;
 Document_View:boolean=true;
@@ -360,9 +364,10 @@ Get_Student_Details()
   localStorage.setItem('Student_Id_Login',this.Student_.Student_Id.toString())
   localStorage.setItem('Student_Name',this.Student_.Student_Name)
   }
-  
-  this.University_Id = Rows[2][0].University_Id;
-  this.Load_Activity_Dropdowns(this.University_Id);
+  if (Rows[2] && Rows[2].length > 0 && Rows[2][0]) {
+    this.University_Id = Rows[2][0].University_Id;
+    this.Load_Activity_Dropdowns(this.University_Id);
+  }
   //  this.isLoading = false;
   },
   Rows => {
@@ -823,6 +828,7 @@ Tab_click(Current_tab)
   this.fee_View=false;
   this.status_View=false;
   this.activities_View=false;
+  this.Exam_Tab_View=false;
 
   if(Current_tab==1){
   this.Profile_View=true;
@@ -871,7 +877,10 @@ Tab_click(Current_tab)
   else if(Current_tab==7)
   {
     this.Exam_Tab_View=true;
-    this.Get_Student_Course_Apply(this.Student_Edit_e)
+    this.Exam_Details_Hidden=false;
+    this.Selected_Exam=null;
+    this.Get_Student_Course_Apply(this.Student_Edit_e);
+    this.Load_Student_Exams(this.Student_Edit_e);
   }
 
 
@@ -1240,7 +1249,6 @@ this.Save_Call_Status = false;
 }
 Get_Activity_Details(Student_Edit_e)
 {
-  
   this.Student_Service_.Get_Activity_Details(Student_Edit_e).subscribe(Rows => {
     
     if (Rows != null) {
@@ -1301,4 +1309,36 @@ Get_Student_Mark(Part)
 // {
 //     this.Activity_.Commission=this.Category_Type_.Commision_Percentage
 // }
+
+Load_Student_Exams(Student_Id: number) {
+    this.Student_Service_.Search_Exam_Master_By_Student(Student_Id).subscribe(
+        (data: any) => {
+            if (data && data[0]) { this.Exam_Data = data[0]; }
+            else { this.Exam_Data = []; }
+        },
+        err => { console.error('Error loading exams', err); this.Exam_Data = []; }
+    );
+}
+
+View_Exam_Details(subject: any) {
+    let exam = this.Exam_Data.find(e => e.Subject_Id === subject.Subject_Id);
+    if (exam) {
+        this.Selected_Exam = exam;
+        this.Exam_Details_Hidden = true;
+        this.Student_Service_.Get_Exam_Details_By_Master(exam.Exam_Master_Id).subscribe(
+            (data: any) => {
+                if (data && data[0]) { this.Exam_Details_Data = data[0]; }
+                else { this.Exam_Details_Data = []; }
+            },
+            err => { console.error('Error loading exam details', err); this.Exam_Details_Data = []; }
+        );
+    } else {
+        this.dialogBox.open(DialogBox_Component, { panelClass: 'Dialogbox-Class', data: { Message: 'No exam data found for this subject.', Type: "3" } });
+    }
+}
+
+Back_To_Exam_List() {
+    this.Exam_Details_Hidden = false;
+    this.Selected_Exam = null;
+}
 }

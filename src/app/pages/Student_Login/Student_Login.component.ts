@@ -209,35 +209,34 @@ async login() {
   if (this.Student_.Email==undefined||this.Student_.Email=="")
   {
     this.Messege='Enter Email'
+    this.issLoading = false;
     return
   }
   if (this.Student_.Password==undefined||this.Student_.Password=="")
   {
     this.Messege = 'Enter Password'
+    this.issLoading = false;
     return
   }
   var Login_Data={'Email':this.Student_.Email,'Password':this.Student_.Password}
-const success = await this.userService.Student_Login_Check(Login_Data);
-  if (success)
-
-  {
-
-   this.Student_Id_Login=+localStorage.getItem('Student_Id_Login');
-  //  this.fireIsLoggedIn.emit(localStorage.getItem('User_Name_Login'));
-  //  document.getElementById('Student_Close').click();
-
-    // if (this.Course_Selection_Data.length>0)
-    // {
-    //   this.Apply_Now_Save(this.Agent_Id_Login);
-    // }
-    // else
-   this.router.navigateByUrl('Student');
-  }
-  else
-  {
+  
+  try {
+    const success = await this.userService.Student_Login_Check(Login_Data);
+    if (success === true)
+    {
+      this.Student_Id_Login=+localStorage.getItem('Student_Id_Login');
+      this.issLoading = false;
+      this.router.navigateByUrl('Student');
+    }
+    else
+    {
+      this.issLoading = false;
+      this.Messege = typeof success === 'string' && success.length > 0 ? success : 'Inavlid User Name/Password';
+    }
+  } catch(error) {
     this.issLoading = false;
-    this.Messege = 'Inavlid User Name/Password';
-   // const dialogRef = this.dialogBox.open(DialogBox_Component, { panelClass: 'Dialogbox-Class', data: { Message: 'Inavlid User Name/Password', Type:"3"}});
+    this.Messege = 'Error occurred during login. Please try again.';
+    console.error(error);
   }
 }
 async Agent_login() {

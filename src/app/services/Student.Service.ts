@@ -297,5 +297,13 @@ Load_Student_Part(Student_Id_)
 {    
     return this.http.get(environment.BasePath +'Student/Load_Student_Part/'+Student_Id_);
 }
+Search_Exam_Master_By_Student(Student_Id)
+{
+    return this.http.get(environment.BasePath + 'Exam_Master/Search_Exam_Master_By_Student/' + Student_Id);
+}
+Get_Exam_Details_By_Master(Exam_Master_Id)
+{
+    return this.http.get(environment.BasePath + 'Exam_Master/Get_Exam_Details_By_Master/' + Exam_Master_Id);
+}
 }
 

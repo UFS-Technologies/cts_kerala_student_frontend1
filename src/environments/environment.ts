@@ -4,7 +4,9 @@
 export const environment =
 {
   production: false,
-BasePath: 'http://localhost:3505/',
+// BasePath: 'http://localhost:3505/',
+  BasePath:'http://localhost:3506/',
+
 // BasePath: 'https://ctskeralademoapi.adat.in/',
     //  BasePath:'https://ctskerlaapi.adat.in/',
     // FilePath: 'https://ctskerlaapi.adat.in/uploads'

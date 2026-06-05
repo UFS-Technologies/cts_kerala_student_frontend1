@@ -9,6 +9,7 @@ Option_2:string;
 Option_3:string;
 Option_4:string;
 Question_Answer:string;
+Correct_Answer:string;
 constructor(values: Object = {})  
 {
 Object.assign(this, values) 

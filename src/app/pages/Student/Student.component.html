@@ -1,4 +1,4 @@
-<mat-option *ngIf="isLoading"><mat-spinner diameter="50"></mat-spinner></mat-option>                
+﻿<mat-option *ngIf="isLoading"><mat-spinner diameter="50"></mat-spinner></mat-option>                
 <!-- <div id='Topdiv'></div> -->                        
 <div *ngIf="!Instruction_Exam_View" style="margin-top:10%;">
     <!-- [hidden]="Instruction_View==true || exam_View==true" -->
@@ -346,8 +346,8 @@
                                 </td>
                                 <td><div> <button style="background-color: gray;"  *ngIf="Subject1.Exam_Attended_Status==0 && Subject1.Online_Exam_Status==1" mat-raised-button type="submit" class="other-button-style btnflot pull-right mt-0" id="Write_Exam" (click)="Write_Exam(Subject1)" >
                                 Write Exam</button>
-                                <!-- <button style="background-color: green;" *ngIf="Subject.Exam_Attended_Status==2 && Subject.Online_Exam_Status==1"  mat-raised-button type="submit" class="other-button-style btnflot pull-right mt-0" id="View_Result">
-                                    View Result</button> -->
+                                <button style="background-color: green;" *ngIf="Subject1.Exam_Attended_Status==2 && Subject1.Online_Exam_Status==1"  mat-raised-button type="submit" class="other-button-style btnflot pull-right mt-0" id="View_Result" (click)="View_Exam_Details(Subject1)">
+                                    View Result</button>
                             </div>
                                     </td>
                                                                                          
@@ -355,6 +355,62 @@
                             </tbody>                                                
                             </table>                                        
                         </div>                                        
+                        </div>
+
+                        <!-- Exam Details View Panel -->
+                        <div *ngIf="Exam_Details_Hidden" style="padding: 10px 0;">
+                            <div class="row mb-3 align-items-center">
+                                <div class="col-md-8">
+                                    <h4 style="color: #512DA8; font-weight: 700;">
+                                        Result â€” {{Selected_Exam?.Subject_Name}}
+                                    </h4>
+                                    <p style="font-size: 14px; color: #555; margin-bottom: 0;">
+                                        Score: <strong>{{Selected_Exam?.Mark_Obtained}}</strong>
+                                    </p>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button class="btn btn-sm btn-outline-secondary" style="border-radius: 20px; font-weight: 600;" (click)="Back_To_Exam_List()">
+                                        &#8592; Back
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover" style="font-size: 13px;">
+                                    <thead style="background-color: #512DA8; color: white;">
+                                        <tr>
+                                            <th style="padding: 10px;">#</th>
+                                            <th style="padding: 10px;">Question</th>
+                                            <th style="padding: 10px;">Option A</th>
+                                            <th style="padding: 10px;">Option B</th>
+                                            <th style="padding: 10px;">Option C</th>
+                                            <th style="padding: 10px;">Option D</th>
+                                            <th style="padding: 10px;">Marked Answer</th>
+                                            <th style="padding: 10px;">Correct Answer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let detail of Exam_Details_Data; let j = index"
+                                            [style.background-color]="detail.Question_Answer === detail.Correct_Answer ? '#f0fff4' : '#fff5f5'">
+                                            <td style="padding: 8px;">{{j + 1}}</td>
+                                            <td style="padding: 8px; font-weight: 600;">{{detail.Question_Name}}</td>
+                                            <td style="padding: 8px;">{{detail.Option_1}}</td>
+                                            <td style="padding: 8px;">{{detail.Option_2}}</td>
+                                            <td style="padding: 8px;">{{detail.Option_3}}</td>
+                                            <td style="padding: 8px;">{{detail.Option_4}}</td>
+                                            <td style="padding: 8px; font-weight: 700;"
+                                                [style.color]="detail.Question_Answer === detail.Correct_Answer ? '#16a34a' : '#dc2626'">
+                                                {{detail.Question_Answer}}
+                                                <span *ngIf="detail.Question_Answer === detail.Correct_Answer">&#10004;</span>
+                                                <span *ngIf="detail.Question_Answer !== detail.Correct_Answer">&#10008;</span>
+                                            </td>
+                                            <td style="padding: 8px; color: #16a34a; font-weight: 700;">{{detail.Correct_Answer}}</td>
+                                        </tr>
+                                        <tr *ngIf="!Exam_Details_Data || Exam_Details_Data.length === 0">
+                                            <td colspan="8" class="text-center" style="padding: 20px; color: #888;">No details available for this exam.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         </div>
                         </div>                        
