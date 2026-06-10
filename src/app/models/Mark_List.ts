@@ -9,6 +9,7 @@ Mark_Obtained:string;
 Exam_Status_Id:number;
 Exam_Status_Name:string;
 Student_Course_Part_Id:number;
+Mark_List_Status:string;
 constructor(values: Object = {})  
 {
 Object.assign(this, values) 
